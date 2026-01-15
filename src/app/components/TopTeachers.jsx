@@ -10,7 +10,6 @@ export default function TopTeachers( { data }) {
         try{
             const topTeachers = [...data].sort((prev, curr) => prev.rating > curr.rating ? -1 : 1).slice(0, 5);
             setTeachers(topTeachers);
-            console.log("This is trigering: ", topTeachers)
 
 
             
@@ -78,7 +77,7 @@ export default function TopTeachers( { data }) {
                                                 ))
                                             }
                                         </div>
-                                        <span className="bg-[#162556] border border-brand-subtle text-white text-xs font-medium px-1.5 py-0.5 rounded-sm">{teacher.rating.toFixed(2)}</span>
+                                        <span className="bg-[#162556] border border-brand-subtle text-white text-xs font-medium px-1.5 py-0.5 rounded-sm">{teacher?.rating.toFixed(2)}</span>
                                     </div>
                                     <a href={`/teachers/${teacher.id}`}>
                                         <h5 className="text-xl text-heading font-semibold tracking-tight">{teacher.name}</h5>
