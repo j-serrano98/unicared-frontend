@@ -1,38 +1,34 @@
 "use client"
 import React, { useState, useEffect } from "react"
 import Image from "next/image"
-import ImageProfile1 from "../../../public/profile-picture-1.jpg"
-import ImageProfile2 from "../../../public/profile-picture-2.jpg"
-import ImageProfile3 from "../../../public/profile-picture-3.jpg"
-import ImageProfile4 from "../../../public/profile-picture-4.jpg"
-import ImageProfile5 from "../../../public/profile-picture-5.jpg"
-import getUsers from "../lib/api/users"
+// import getUsers from "../lib/api/users"
+
 
 
 export default function TopUsers() {
 
-    const [users, setUsers] = useState([])
+    // const [users, setUsers] = useState([])
 
-    useEffect(() => {
-        try {
-            async function fetchUsers() {
-                const response = await getUsers()
-                const data = await response.json()
-                console.log("Fetched users:", data)
-                setUsers(data)
-            }
-            fetchUsers()
-        } catch (error) {
-            console.error("Error fetching users:", error)
-        }
-    }, [])
+    // useEffect(() => {
+    //     try {
+    //         async function fetchUsers() {
+    //             const response = await getUsers()
+    //             const data = await response.json()
+    //             console.log("Fetched users:", data)
+    //             setUsers(data)
+    //         }
+    //         fetchUsers()
+    //     } catch (error) {
+    //         console.error("Error fetching users:", error)
+    //     }
+    // }, [])
 
     return (
         <div className="w-full max-w-sm p-6 bg-neutral-primary-soft border border-default rounded-base shadow-xs rounded-xl">
                     <h5 className="text-xl font-semibold text-heading mb-6">Latest users</h5>
                     <div className="flow-root">
                         <ul role="list" className="divide-y divide-default">
-                            {users.map((user) => (
+                            {/* {users.map((user) => (
                                 <li key={user.id} className="pb-4 sm:pb-4">
                                     <div className="flex items-center gap-2">
                                         <div className="shrink-0">
@@ -58,7 +54,7 @@ export default function TopUsers() {
                                         </div>
                                     </div>
                                 </li>
-                            ))}
+                            ))} */}
                             {/* <li className="py-4 sm:py-4">
                                 <div className="flex items-center gap-2">
                                     <div className="shrink-0">
