@@ -39,10 +39,10 @@ export default function Navbar({ isAuthenticated, profile }) {
                 <div className={`basis-300 overflow-hidden transition-all duration-600 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} md:opacity-100 md:max-h-none md:basis-auto md:block`} id="navbar-default">
                     <ul className="font-medium flex flex-col py-4 md:p-0 mt-4 bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                         <li>
-                            <a href="/login/" className={`${menuOpen ? "block" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} aria-current="page">Home</a>
+                            <a href="/login/" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} aria-current="page">Inicia Sesion</a>
                         </li>
                         <li>
-                            <a href="/register/" className={`${menuOpen ? "block" : "hidden"} py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent`}>About</a>
+                            <a href="/register/" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent`}>Registrate</a>
                         </li>
                     </ul>
                 </div>
