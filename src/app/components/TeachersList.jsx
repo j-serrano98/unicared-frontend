@@ -162,10 +162,24 @@ export default function TeachersList({ teachers }) {
 
 
   return(
-      <section className="grid grid-cols-12 gap-6">
+      <section className="flex-column md:grid-cols-12 md:gap-6">
+        <div className="mb-4">
+            <input type="text" id="keywords" name="keywords" className="rounded-lg bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body " placeholder="e.g. ramon mateo, matematica, tecnologia" value={keywordFilter} onChange={handleKeywordSearch} />
+        </div>
+        <div className="md:hidden flex mb-4 justify-between gap-5">
+            <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="w-full rounded-lg inline-flex items-center justify-center text-white bg-gray-900 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none" type="button">
+                Filters
+                <svg class="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 9-7 7-7-7"/></svg>
+            </button>
+            <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" class="w-full rounded-lg px-3 py-2.5 bg-gray-900-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                {sortingOptions.map((s, i) => (
+                    <option key={i}  value={s.value}>{s.option}</option>
+                ))}
+            </select>
+        </div>
 
         {/* Left Side Panel */}
-        <div className="bg-gray col-span-4 flex flex-col">
+        <div className="hidden bg-gray md:col-span-4 lg:col-sppan-4 flex flex-col">
 
             <div className="min-h-screen">
                 <div className="relative inline-block w-full max-w-sm text-left">
@@ -326,14 +340,10 @@ export default function TeachersList({ teachers }) {
         </div>
 
         {/* Main Panel */}
-        <div className="col-span-8 flex flex-col gap-6">
-            <div className="flex justify-between items-center mb-4">
+        <div className="md:col-span-8 flex md:flex-col gap-6">
+            <div className="hidden md:block flex justify-between items-center mb-4">
                 <h1>Resultados:</h1>
                 <div className="flex gap-4  justify-content-center">
-                    {/* <div className="flex items-center">
-                        <h1>Ordenar</h1>
-                    </div> */}
-                    {/* <Dropdown /> */}
                     <label for="sorting-options" class="block mb-2.5 text-sm font-medium text-heading">Order by</label>
                     <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
                         {sortingOptions.map((s, i) => (
