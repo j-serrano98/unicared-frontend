@@ -22,6 +22,7 @@ export default function TeachersList({ teachers }) {
     const [selectedDepartment, setSelectedDepartment] = useState('')
     const [keywordFilter, setKeywordFilter] = useState('')
     const [sortingOrder, setSortingOrder] = useState('mp')
+    const [showFilter, setShowFilter] = useState(false)
 
     
     /* ============================
@@ -162,15 +163,42 @@ export default function TeachersList({ teachers }) {
 
 
   return(
-      <section className="grid grid-cols-12 gap-6">
+      <section className="grid md:grid-cols-12 md:gap-6 w-full">
+        <div className="md:hidden lg:hidden mb-4">
+            <input type="text" id="keywords" name="keywords" className="rounded-lg bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body " placeholder="e.g. ramon mateo, matematica, tecnologia" value={keywordFilter} onChange={handleKeywordSearch} />
+        </div>
+        <div className="md:hidden lg:hidden flex mb-4 justify-between gap-5">
+            <button onClick={() => setShowFilter(true)} id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" className="w-full rounded-lg inline-flex items-center justify-center text-white bg-gray-900 box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none" type="button">
+                Filters
+                <svg className="w-4 h-4 ms-1.5 -me-0.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7"/></svg>
+            </button>
+            <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" className="w-full rounded-lg px-3 py-2.5 bg-gray-900-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                {sortingOptions.map((s, i) => (
+                    <option key={i}  value={s.value}>{s.option}</option>
+                ))}
+            </select>
+        </div>
 
         {/* Left Side Panel */}
-        <div className="bg-gray col-span-4 flex flex-col">
+        {/* Left Side Panel Overlay (Mobile) / Sidebar (Desktop) */}
+<div className={`
+    ${showFilter ? "translate-x-0 w-[90vw]" : "-translate-x-full"} 
+    fixed inset-0 z-50 md:w-full h-full transition-transform duration-300 ease-in-out
+    md:relative bg-white md:translate-x-0 md:inset-auto md:z-0 md:block md:h-auto md:col-span-4 lg:col-span-4 
+    bg-gray md:rounded-xl border border-gray-900 overflow-y-auto
+`}>
+    {/* Close Button - Only visible on Mobile */}
+    <div 
+        onClick={() => setShowFilter(false)} 
+        className="md:hidden text-end pe-5 pt-5 text-2xl font-bold hover:cursor-pointer"
+    >
+        ✕
+    </div>
 
-            <div className="min-h-screen">
+            <div className="">
                 <div className="relative inline-block w-full max-w-sm text-left">
                     
-                    <details className="group w-full rounded-lg ring-1 ring-black ring-opacity-5" open>
+                    <details className="group w-full rounded-lg  " open>
                     
                     <summary className="flex w-full cursor-pointer list-none items-center justify-between p-4 font-semibold text-gray-900 text-xl text-heading">
                         Advanced Filters
@@ -326,16 +354,12 @@ export default function TeachersList({ teachers }) {
         </div>
 
         {/* Main Panel */}
-        <div className="col-span-8 flex flex-col gap-6">
-            <div className="flex justify-between items-center mb-4">
+        <div className="md:col-span-8 flex md:flex-col gap-6 w-full">
+            <div className="hidden md:block flex justify-between items-center mb-4">
                 <h1>Resultados:</h1>
                 <div className="flex gap-4  justify-content-center">
-                    {/* <div className="flex items-center">
-                        <h1>Ordenar</h1>
-                    </div> */}
-                    {/* <Dropdown /> */}
-                    <label for="sorting-options" class="block mb-2.5 text-sm font-medium text-heading">Order by</label>
-                    <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" class="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                    <label htmlFor="sorting-options" className="block mb-2.5 text-sm font-medium text-heading">Order by</label>
+                    <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" className="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
                         {sortingOptions.map((s, i) => (
                             <option key={i}  value={s.value}>{s.option}</option>
                         ))}
@@ -343,7 +367,7 @@ export default function TeachersList({ teachers }) {
                 </div>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 overflow-y-auto max-h-[77vh]">
+            <div className="grid gap-6  overflow-y-auto max-h-[72vh] w-full">
                 {isLoading ? Array.from({ length : 3 }).map((_, i) => <CardSkeleton key={i}/>) : filteredTeachers.map((teacher,i) => <Card key={i} teacher={teacher} />)}
                 {!isLoading && filteredTeachers.length == 0 && <div className="text-center col-span-2">Not Found</div>}
             </div>
