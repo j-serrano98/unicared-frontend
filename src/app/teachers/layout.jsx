@@ -7,7 +7,7 @@ export default function TeacherPagesLayout( { children }) {
         <div className="container-xl lg:container m-auto py-7">
           <div className="flex flex-column">
 
-            <div className="col-span-9">
+            <div className="col-span-9 w-full">
                 { children }
             </div>
     

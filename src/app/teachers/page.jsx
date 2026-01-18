@@ -5,7 +5,7 @@ export default async function TeachersPage() {
     const teachersData = await fetcher(`teachers/`);
 
   return(
-      <section className="px-2 overflow-auto">
+      <section className="p-4 overflow-hidden">
 
         {/* Left Side Panel */}
         {/* <FilterSideBar teachers={teachersData}/> */}
