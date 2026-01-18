@@ -264,7 +264,7 @@ export default function TeachersList({ teachers }) {
                             </svg>
                             </summary>
                             <div className="space-y-2 p-3 text-sm text-gray-600 max-h-[20vh] overflow-auto">
-                                {allSubjects.map(([subjectName, count]) => (
+                                {allSubjects.sort().map(([subjectName, count]) => (
                                     <div key={subjectName}
                                             className="flex justify-between"
                                             onClick={() => setSelectedSubject(subjectName)}>
@@ -306,7 +306,7 @@ export default function TeachersList({ teachers }) {
                             </svg>
                             </summary>
                             <div className="space-y-2 p-3 text-sm text-gray-600">
-                                {allDepartments.map(([departmentName, count]) => (
+                                {allDepartments.sort().map(([departmentName, count]) => (
                                     <div key={departmentName}
                                             className="flex justify-between"
                                             onClick={() => setSelectedDepartment(departmentName)}>
