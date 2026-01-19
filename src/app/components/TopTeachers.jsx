@@ -34,7 +34,7 @@ export default function TopTeachers( { data }) {
                         Top Profesores
                     </h2>
                     { loading ? (
-                        <div className="sm:flex sm:flex-column gap-6">
+                        <div className="flex-column md:flex lg:flex gap-6">
                             {Array.from({ length: 5 }).map((_, i) => (
                                 <div key={i} className="w-full max-w-sm bg-gray-900 text-white p-6 border border-default rounded-base shadow-xs rounded-xl">
                                     <div>
@@ -51,7 +51,7 @@ export default function TopTeachers( { data }) {
                             ))}
                         </div>
                         ) : (
-                        <div className="sm:flex-column gap-6 mx-auto">
+                        <div className="flex-column md:flex lg:flex gap-6 w-full">
                             {teachers.map((teacher, i) => {
 
                                 const rating = teacher.rating;
@@ -59,7 +59,7 @@ export default function TopTeachers( { data }) {
                                 const emptyStars = 5 - Math.round(rating / 2);
 
                                 return(
-                                    <div key={teacher.id} className={`w-full max-w-sm bg-gray-900 text-white p-6 border border-default rounded-base shadow-xs rounded-xl ${i+1 == teachers.length ? "" : "mb-4"}`}>
+                                    <div key={teacher.id} className={`w-full bg-gray-900 text-white p-6 border border-default rounded-base shadow-xs rounded-xl ${i+1 == teachers.length ? "md:mb-4 lg:mb-4" : "mb-4"} `}>
                                         <div>
                                             <div className="flex justify-between space-x-3 mb-6">
                                                 <div className="flex items-center space-x-1 rtl:space-x-reverse">
