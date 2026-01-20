@@ -356,10 +356,9 @@ export default function TeachersList({ teachers }) {
         {/* Main Panel */}
         <div className="md:col-span-8 flex md:flex-col gap-6 w-full">
             <div className="hidden md:block flex justify-between items-center mb-4">
-                <h1>Resultados:</h1>
-                <div className="flex gap-4  justify-content-center">
+                <div className="flex gap-4 justify-end">
                     <label htmlFor="sorting-options" className="block mb-2.5 text-sm font-medium text-heading">Order by</label>
-                    <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" className="block w-full px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
+                    <select value={sortingOrder} onChange={handleSortingChange} id="sorting-options" className="block w-50 px-3 py-2.5 bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand shadow-xs placeholder:text-body">
                         {sortingOptions.map((s, i) => (
                             <option key={i}  value={s.value}>{s.option}</option>
                         ))}

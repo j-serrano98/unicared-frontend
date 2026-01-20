@@ -16,11 +16,14 @@ export default function Navbar({ isAuthenticated, profile }) {
 
                 <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                     <Image
-                        src="/UnicaRed Banner.png"
-                        width={190}
+                        src="/UnicaRed Logo.png"
+                        width={40}
                         height={1}
                         alt="Picture of the author"
                     />
+                    <div className="text-2xl font-bold">
+                    <span className="text-white">Unica</span><span className="text-red-500">Red</span>
+                    </div>
                 </a>
                                         
                 {/* Right Side Buttons: Login, Logout, Menu Toggle, Profile*/}
