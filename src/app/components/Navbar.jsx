@@ -2,6 +2,9 @@
 
 import LogoutButton from "./LogoutButton"
 import React, { useState } from 'react'
+import Image from 'next/image'
+
+
 export default function Navbar({ isAuthenticated, profile }) {
 
     const [menuOpen, setMenuOpen] = useState(false);
@@ -12,7 +15,15 @@ export default function Navbar({ isAuthenticated, profile }) {
             <div className='container-xl lg:container m-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
 
                 <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                    <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Unica<span className="text-red-500">Red</span></span>
+                    <Image
+                        src="/UnicaRed Logo.png"
+                        width={40}
+                        height={1}
+                        alt="Picture of the author"
+                    />
+                    <div className="text-2xl font-bold">
+                    <span className="text-white">Unica</span><span className="text-red-500">Red</span>
+                    </div>
                 </a>
                                         
                 {/* Right Side Buttons: Login, Logout, Menu Toggle, Profile*/}
