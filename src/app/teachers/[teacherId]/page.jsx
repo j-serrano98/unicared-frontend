@@ -12,17 +12,22 @@ export default async function TeacherPage({ params }) {
     });
     
     return (
-        <section>
-            <div className="grid grid-cols-12 gap-6">
-                <aside className="bg-gray-900 col-span-4 flex flex-col  text-white rounded-2xl justify-between">
+        <section className="px-4 md:px-0">
+            <div className="flex-column md:flex gap-5">
+                <aside className="bg-gray-900 md:col-span-4 text-white rounded-2xl justify-between">
                     <DetailsHeader teacherData={teacherData}/>
                     <Charts className="m-1" teacherData={teacherData}/>
                 </aside>
-                <div className="bg-gray-900 col-span-8 flex flex-col rounded-2xl">
+
+                <div className="flex md:hidden justify-end">
+                    <GoBackButton/>
+                </div>
+                
+                <div className="bg-gray-900 rounded-2xl">
                     <ReviewList id={teacherData.id} teacherData={teacherData}/>
                 </div>
             </div>
-            <div className="flex justify-end">
+            <div className="hidden md:block flex justify-end">
                 <GoBackButton/>
             </div>
         </section>

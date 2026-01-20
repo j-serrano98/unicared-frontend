@@ -59,7 +59,7 @@ export default function TopTeachers( { data }) {
                                 const emptyStars = 5 - Math.round(rating / 2);
 
                                 return(
-                                    <div key={teacher.id} className={`w-full bg-gray-900 text-white p-6 border border-default rounded-base shadow-xs rounded-xl ${i+1 == teachers.length ? "md:mb-4 lg:mb-4" : "mb-4"} `}>
+                                    <div key={teacher.uuid} className={`w-full bg-gray-900 text-white p-6 border border-default rounded-base shadow-xs rounded-xl ${i+1 == teachers.length ? "md:mb-4 lg:mb-4" : "mb-4"} `}>
                                         <div>
                                             <div className="flex justify-between space-x-3 mb-6">
                                                 <div className="flex items-center space-x-1 rtl:space-x-reverse">
@@ -80,7 +80,7 @@ export default function TopTeachers( { data }) {
                                                 </div>
                                                 <span className="bg-[#162556] border border-brand-subtle text-white text-xs font-medium px-1.5 py-0.5 rounded-sm">{teacher?.rating.toFixed(2)}</span>
                                             </div>
-                                            <a href={`/teachers/${teacher.id}`}>
+                                            <a href={`/teachers/${teacher.uuid}`}>
                                                 <h5 className="text-xl text-heading font-semibold tracking-tight">{teacher.name}</h5>
                                             </a>
                                         </div>
