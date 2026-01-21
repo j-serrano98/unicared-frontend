@@ -4,7 +4,7 @@ export default async function fetcher(endpoint, options = {}) {
     const cookieStore = await cookies();
     const token = cookieStore.get("authToken")?.value;
 
-    console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}${endpoint}`)
+    console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`)
 
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, 

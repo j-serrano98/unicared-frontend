@@ -12,7 +12,7 @@ export default async function MePage() {
   let enrollmentStats = null;
 
   if (token){
-    const profileRes = await fetcher('profile/', {
+    const profileRes = await fetcher('profile/me/', {
       cache: 'no-store'
     }
     )
