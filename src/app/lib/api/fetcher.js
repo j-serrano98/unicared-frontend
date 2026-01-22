@@ -4,8 +4,6 @@ export default async function fetcher(endpoint, options = {}) {
     const cookieStore = await cookies();
     const token = cookieStore.get("authToken")?.value;
 
-    console.log(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`)
-
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`, 
         {
@@ -19,7 +17,7 @@ export default async function fetcher(endpoint, options = {}) {
     });
 
     if (response.status === 401 || response.status === 403) {
-    return { unauthorized: true };
+        return { unauthorized: true };
     }
 
     if (!response.ok) {
