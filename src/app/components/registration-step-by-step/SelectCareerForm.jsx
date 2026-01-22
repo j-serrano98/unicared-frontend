@@ -26,11 +26,11 @@ export default function SelectCareerForm({ careers }) {
     }
     return (
 
-        <section className="py-4">
+        <section className="py-4 h-full">
             <h2 className="mb-4 text-xl font-bold text-gray-900">3. Selecciona tu Carrera</h2>
-            <form action={formAction}>
-                <div className="grid grid-cols-4 gap-4 bg-gray-900 p-8 rounded-xl">
-                    {careers.slice(0,5).map((career) => {
+            <form action={formAction} className="h-full">
+                <div className="grid grid-cols-4 gap-4 bg-gray-900 p-8 rounded-xl overflow-auto h-[50vh]">
+                    {careers.map((career) => {
                         
                         return (
                             <div onClick={() => setSelectedCareer(career.id)} key={career.id} className={`flex-column h-30 text-center items-center rounded-lg  px-4 py-2 border-gray-700 active:bg-gray-800 ${selectedCareer==career.id ? "bg-gray-800 border-3" : "bg-gray-800 hover:bg-gray-700 border"} hover:cursor-pointer`}>
