@@ -33,12 +33,6 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
     const [profile, setProfile] = useState([]);
     const sortedEnrollments = [...enrollmentData].sort((a,b) => a.subject_period - b.subject_period);
     const currentCategory = [...tenureCategories].reverse().find(tier => statsData.completion_rate >= tier.rate)
-    // const [currentPage, setCurrentPage] = useState(1);
-
-    // const totalPages = Math.ceil(enrollmentData/PAGE_SIZE);
-
-    // const startIndex = (currentPage - 1) * PAGE_SIZE;
-    // const currentEnrollmentData =  enrollmentData.slice(startIndex, startIndex + PAGE_SIZE)
 
     useEffect(() => {
 
@@ -55,7 +49,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
     return (
 
-        <section className="bg-white py-8 antialiased dark:bg-gray-900 md:py-8">
+        <section className="py-8 antialiased bg-gray-900 md:py-8">
             <div className="mx-auto max-w-screen-2xl px-4 2xl:px-12">
                 {/* <div className="grid grid-cols-2 gap-6 border-b border-t border-gray-200 py-4 dark:border-gray-700 md:py-8 lg:grid-cols-4 xl:gap-16">
                 <div>
@@ -156,7 +150,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     alt="Picture of the author"
                                     />
                                     <div>
-                                    <span className={`mb-2 inline-block rounded bg-${currentCategory.color}-500 px-2.5 py-0.5 text-xs font-medium text-beige-800 dark:text-beige-300`}>{currentCategory.level}</span>
+                                    <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 dark:text-beige-300`}>{currentCategory.level}</span>
                                     <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 dark:text-white sm:text-2xl">{profile.first_name} {profile.last_name}</h2>
                                     <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">{profile.career_name}</div>
                                     {/* <div className="text-gray-500 dark:text-gray-400">{profile.email}</div> */}
@@ -201,7 +195,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     </div>
                                     <div>
                                         <div className="font-semibold text-gray-900 dark:text-white">GPA</div>
-                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.gpa.toFixed(2) ?? ""}</div>
+                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.gpa?.toFixed(2) ?? ""}</div>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +242,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                             </button>
                         </div>
                     </div> */}
-                    <div className="h-screen overflow-y-auto mb-5">
+                    <div className="h-screen overflow-y-auto mb-5 border border-gray-700">
                         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-fixed">
                             <thead className="sticky top-0 z-10 text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 ">
                                     <tr>

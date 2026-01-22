@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
 
   if (token) {
     try {
-      profile = await fetcher("profile/");
+      profile = await fetcher("profile/me");
     } catch (err) {
       profile = null;
     }

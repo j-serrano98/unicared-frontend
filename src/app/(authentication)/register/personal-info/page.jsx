@@ -1,6 +1,5 @@
 import PersonalInfoForm from "@/app/components/registration-step-by-step/PersonalInfoForm";
 import StepByStep from "@/app/components/registration-step-by-step/StepByStep"
-import fetcher from "@/app/lib/api/fetcher";
 
 export default async function PersonalInfoPage() {
     return(

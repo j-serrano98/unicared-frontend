@@ -43,6 +43,8 @@ export default async function MePage() {
 
   
   return (
+    <div className="h-full">
       <PensumTable profileData={profileData} enrollmentData={enrollmentData} statsData={enrollmentStats}/>
+    </div>
     );
 }
