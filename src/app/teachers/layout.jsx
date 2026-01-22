@@ -1,5 +1,5 @@
-import CollaborationCard from "../components/CollaborationCard"
-import AddTeacherRequest from "../components/AddTeacherRequest"
+import CollaborationCard from "../components/info-cards/Collaboration"
+import AddTeacherRequest from "../components/info-cards/AddTeacherRequest"
 import TopUsers from "../components/TopUsers"
 
 export default function TeacherPagesLayout( { children }) {
