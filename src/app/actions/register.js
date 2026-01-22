@@ -4,7 +4,7 @@ import { register } from "@/app/lib/api/auth";
 import { cookies } from "next/headers";
 import { redirect } from 'next/navigation'
 
-export async function registerAction(formData) {
+export async function registerAction(prevState, formData) {
     const cookieStore = await cookies();
 
     const data = {
@@ -16,12 +16,20 @@ export async function registerAction(formData) {
     try {
         const response = await register(data);
 
-        console.log(response);
+        if (response.token) {
+            cookieStore.set("authToken", response.token, {
+                httpOnly: true,
+                secure: process.env.NODE_ENV === "production",
+                path: "/",
+            });
+        }
     }
     catch (err) {
         return {
             success: false,
-            error: "Error del servidor. Intenta nuevamente.",
+            error: "Server failed. Try again.",
         };
     }
+
+    redirect('/register/personal-info')
 };

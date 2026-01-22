@@ -8,7 +8,7 @@ export function login(data) {
 }
 
 export function register(data) {
-    return fetcher('auth/register/', {
+    return fetcher('auth/signup/', {
         method: 'POST',
         body: JSON.stringify(data)
     })

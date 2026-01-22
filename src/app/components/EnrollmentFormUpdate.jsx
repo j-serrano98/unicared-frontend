@@ -30,18 +30,15 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
     const [state, formAction] = React.useActionState(
         updateEnrollmentAction,
         initialState
-    );
-    console.log(enrollmentData?.review?.skills.filter(s => s.skill == 'Punctuality')[0]['score'])
-    // console.log(enrollmentData.review.skills.filter(s => s.skill == 'Punctuality')[0]['score'])
-    
+    );    
 
     const enrollment = enrollmentData;
 
     const status = ["Not taken", "In progress", "Completed"]
 
     return(
-        <section className="bg-white dark:bg-gray-900">
-            <div className="px-4 py-8 mx-15 lg:py-16">
+        <section className="h-full py-16">
+            <div className="p-10 mx-15 bg-gray-900 rounded-xl">
                 <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">Update Enrollment</h2>
                 <form action={formAction}>
                     <input type="hidden" name="id" value={enrollment.id} />

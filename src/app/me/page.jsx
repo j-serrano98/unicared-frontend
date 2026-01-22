@@ -12,7 +12,7 @@ export default async function MePage() {
   let enrollmentStats = null;
 
   if (token){
-    const profileRes = await fetcher('profile/', {
+    const profileRes = await fetcher('profile/me/', {
       cache: 'no-store'
     }
     )
@@ -43,6 +43,8 @@ export default async function MePage() {
 
   
   return (
+    <div className="h-full">
       <PensumTable profileData={profileData} enrollmentData={enrollmentData} statsData={enrollmentStats}/>
+    </div>
     );
 }
