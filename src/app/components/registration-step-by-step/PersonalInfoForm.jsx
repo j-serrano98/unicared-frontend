@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useFormState } from "react-dom";
 import { updateProfileAction } from "@/app/actions/updateProfile";
 import { useRouter } from "next/navigation";
@@ -50,10 +49,6 @@ export default function PersonalInfoForm() {
     const [state, formAction] = useFormState(updateProfileAction, initialState);
 
     const router = useRouter();
-
-    function goBack() {
-        router.back();
-    }
     
     function skipForm() {
         router.push("/me");
