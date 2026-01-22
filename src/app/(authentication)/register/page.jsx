@@ -8,7 +8,7 @@ export default function RegisterPage() {
     
     return(
         <div className="bg-gray-900 h-full flex items-center">
-            <div className="container flex justify-between md:py-16 mx-auto md:px-16">
+            <div className="container flex justify-between mx-auto">
                 <div className="hidden md:block">
                     <div className="mb-8 flex space-x-3 rtl:space-x-reverse">
                         <svg className="w-6 h-6 text-white dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">

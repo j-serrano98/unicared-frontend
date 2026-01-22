@@ -11,7 +11,7 @@ import Card from "./Card"
 import Dropdown from "./Dropdown"
 import FilterActive from "./icons/FilterActive"
 import FilterInactive from "./icons/FilterInactive"
-import CollaborationCard from "./CollaborationCard"
+import CollaborationCard from "./info-cards/Collaboration"
 
 import getTeachers from "../../lib/api/teachers"
 import React, { useState, useEffect } from "react"
