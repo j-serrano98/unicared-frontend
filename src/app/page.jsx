@@ -9,10 +9,11 @@ export default async function Home() {
     const teachersData = await fetcher("teachers/")
 
   return (
-    <div className="flex flex-col justify-between h-full m-auto font-sans">
+    <div className={`flex flex-col ${teachersData.error ? "" : "justify-between"} h-full m-auto font-sans`}>
         <Hero />
         <HomeCards />
-        <TopTeachers data={teachersData}/>
+        {teachersData.error ? "" : <TopTeachers data={teachersData}/>}
+        
     </div>
   );
 }
