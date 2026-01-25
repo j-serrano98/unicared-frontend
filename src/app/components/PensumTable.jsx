@@ -32,7 +32,9 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
     const [profile, setProfile] = useState([]);
     const sortedEnrollments = [...enrollmentData].sort((a,b) => a.subject_period - b.subject_period);
-    const currentCategory = [...tenureCategories].reverse().find(tier => statsData.completion_rate >= tier.rate)
+
+    const completionRate = statsData?.completion_rate || 0;
+    const currentCategory = [...tenureCategories].reverse().find(tier => completionRate >= tier.rate)
 
     useEffect(() => {
 
@@ -151,7 +153,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     />
                                     <div>
                                     <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 dark:text-beige-300`}>{currentCategory.level}</span>
-                                    <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 dark:text-white sm:text-2xl">{profile.first_name} {profile.last_name}</h2>
+                                    <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 dark:text-white sm:text-2xl">{profile.first_name ? `${profile.first_name} ${profile.last_name}` : `${profile?.username}`}</h2>
                                     <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">{profile.career_name}</div>
                                     {/* <div className="text-gray-500 dark:text-gray-400">{profile.email}</div> */}
                                     </div>
@@ -183,19 +185,19 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 <div className="flex flex-colum gap-5 pt-7">
                                     <div>
                                         <div className="font-semibold text-gray-900 dark:text-white">Subjects</div>
-                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.total_enrollments}</div>
+                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData?.total_enrollments ?? 0}</div>
                                     </div>
                                     <div>
                                         <div className="font-semibold text-gray-900 dark:text-white">Completed</div>
-                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.completed_enrollments}</div>
+                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData?.completed_enrollments ?? 0}</div>
                                     </div>
                                     <div>
                                         <div className="font-semibold text-gray-900 dark:text-white">Left</div>
-                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.total_enrollments - statsData.completed_enrollments}</div>
+                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData?.total_enrollments ? statsData?.total_enrollments - statsData?.completed_enrollments : 0}</div>
                                     </div>
                                     <div>
                                         <div className="font-semibold text-gray-900 dark:text-white">GPA</div>
-                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.gpa?.toFixed(2) ?? ""}</div>
+                                        <div className="text-xl text-gray-500 dark:text-gray-400">{statsData?.gpa ? statsData?.gpa?.toFixed(2) : "NA"}</div>
                                     </div>
                                 </div>
                             </div>
@@ -203,7 +205,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 dark:text-white sm:text-2xl">Reviews</h2>
                                 <div className="flex flex-colum gap-5 pt-7">
                                     <div className="font-semibold text-gray-900 dark:text-white">Reviews Completed</div>
-                                    <div className="text-xl text-gray-500 dark:text-gray-400">{statsData.total_reviews}</div>
+                                    <div className="text-xl text-gray-500 dark:text-gray-400">{statsData?.total_reviews ?? 0}</div>
                                 </div>
                             </div>
                             
@@ -262,6 +264,14 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     </tr>
                             </thead>
                             <tbody>
+                                {!profile.onboarding_completed 
+                                    ?
+                                    <td colSpan={8} className="px-4 py-[10rem] text-center text-lg font-semibold text-gray-700 dark:text-white">
+                                        Selecciona tu <a href="/register/career" className="text-red-700">carrera</a> para visualizar tus materias.
+                                    </td>
+                                    :
+                                    ""
+                                }
                                 {sortedEnrollments.map((enrollment, index) => {
                                     const prev = sortedEnrollments[index - 1];
                                     const showPeriodHeader = index === 0 || enrollment.subject_period != prev.subject_period;

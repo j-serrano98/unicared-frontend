@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import { redirect } from 'next/navigation'
 
 export async function loginAction(prevState, formData) {
+    let response;
     const cookieStore = await cookies();
 
     const data = {
@@ -14,9 +15,9 @@ export async function loginAction(prevState, formData) {
 
     try {
 
-        const response = await login(data);
+        response = await login(data);
     
-        if (response.error === "Invalid credentials") {
+        if (response.unauthorized) {
             return {
                 success: false,
                 error: "Usuario o contraseña incorrectos",
@@ -45,9 +46,6 @@ export async function loginAction(prevState, formData) {
             user: response.user ?? null,
         }
         }
-
-
-
     }
 
     catch (err) {
@@ -56,7 +54,10 @@ export async function loginAction(prevState, formData) {
             error: "Error del servidor. Intenta nuevamente.",
         };
     }
+
     finally {
-        redirect("/")
+        if (!response.unauthorized) {
+            redirect("/")
+        }
     }
 }
