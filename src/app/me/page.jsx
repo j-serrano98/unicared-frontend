@@ -7,40 +7,29 @@ export default async function MePage() {
   const cookieStore = await cookies();
   const token =  cookieStore.get("authToken")?.value;
 
-  let profileData = null;
-  let enrollmentData = null;
-  let enrollmentStats = null;
+  if (!token) redirect('login');
 
-  if (token){
-    const profileRes = await fetcher('profile/me/', {
+  const [profileRes, enrollmentRes, statsRes] = await Promise.allSettled([
+    fetcher('profile/me/', {
       cache: 'no-store'
-    }
-    )
-
-    const enrollmentRes = await fetcher('profile/enrollments/', {
+    }),
+    fetcher('profile/enrollments/', {
       cache: 'no-store'
-    })
-
-    const statsRes = await fetcher("profile/stats", {
+    }),
+    fetcher("profile/stats", {
       cache: 'no-store'
     })
+  ]);
 
-    if (profileRes?.unauthorized || enrollmentRes?.unauthorized){
-      cookieStore.delete("authToken");
-      redirect('/login')
-    }
-
-    profileData = profileRes;
-    enrollmentData = enrollmentRes
-    enrollmentStats = statsRes
-    
-  }
-  else {
+  const results = [profileRes, enrollmentRes, statsRes];
+  if (results.some(r => r.status === 'fulfilled' && r.value?.unauthorized)) {
+    cookieStore.delete("authToken");
     redirect('/login')
   }
 
-
-
+  const profileData = profileRes.status === 'fulfilled' ? profileRes.value : null;
+  const enrollmentData = enrollmentRes.status === 'fulfilled' ? enrollmentRes.value : null;
+  const enrollmentStats = statsRes.status === 'fulfilled' ? statsRes.value : null;
   
   return (
     <div className="h-full">

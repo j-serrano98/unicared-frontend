@@ -51,7 +51,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                             <div ref={lgDropdownRef} className="relative">
                                 <button onClick={() => setLgMenuOpen(prev => !prev)} id="accountButton" type="button" className="hidden md:inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
                                     <svg className="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                        <path stroke="currentColor" stroke-width="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                        <path stroke="currentColor" strokeWidth="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                     </svg>              
                                     Perfil
                                     <svg className={`w-4 h-4 ms-1 transition-transform duration-200 ${lgMenuOpen ? 'rotate-180' : ''}`} aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                                     <div className="px-3 py-5 text-md font-medium text-gray-900 dark:text-white text-center">
                                         <span className="font-bold">Bienvenido, {profile?.first_name} {profile?.last_name}</span>
                                         <br />
-                                        <span className="text-sm">{profile.email}</span>
+                                        <span className="text-sm">{profile?.email}</span>
                                     </div>
                                     
                                     <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
@@ -91,14 +91,14 @@ export default function Navbar({ isAuthenticated, profile }) {
                     </button>
                 </div>
                 <div ref={dropdownRef} className={`basis-300 overflow-hidden transition-all duration-600 ease-in-out ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"} md:opacity-100 md:max-h-none md:basis-auto md:block`} id="navbar-default">
-                    {/* {isAuthenticated ? <span>Bienvenido, {profile?.first_name} {profile?.last_name}</span> : ""} */}
+                    {isAuthenticated ? <div className={`${menuOpen ? "md:hidden" : "hidden"} pt-5 ps-3 text-lg`}>Bienvenido, {profile?.first_name} {profile?.last_name}</div> : ""}
                     
                     {isAuthenticated
                         ?
                         <ul className="font-medium flex flex-col py-4 md:p-0 mt-4 bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-                            <li><a href="/me" title="" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} > Mi Perfil </a></li>
+                            <li><a href="/me" title="" className={`${menuOpen ? "block hover:bg-gray-700 md:hidden" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} > Mi Perfil </a></li>
                             {/* <li><a href="#" title="" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} > Ajustes </a></li> */}
-                            <li className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3`}><LogoutButton/></li>
+                            <li className={`${menuOpen ? "block hover:bg-gray-700 md:hidden" : "hidden"} py-2 px-3`}><LogoutButton/></li>
                         </ul>
                         :
                         <ul className="md:hidden font-medium flex flex-col py-4 md:p-0 mt-4 bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">

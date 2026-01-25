@@ -95,7 +95,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                             </th>
                                             {Array.from({ length: 10 }).map((_, i) => (
                                                     <td className="px-1 py-4">
-                                                        <input defaultChecked={enrollmentData.review?.skills.filter(s => s.skill.toLowerCase() == rs)[0]['score']==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
+                                                        <input defaultChecked={enrollmentData.review?.skills?.filter(s => s.skill.toLowerCase() == rs)[0]['score']==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
                                                     </td>
                                                 ))}
                                         </tr>
