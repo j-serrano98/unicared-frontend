@@ -51,7 +51,7 @@ export default function PersonalInfoForm({ profile }) {
     const router = useRouter();
     
     function skipForm() {
-        router.push("/me");
+        router.push("/register/career");
     }
 
     return (
@@ -64,34 +64,34 @@ export default function PersonalInfoForm({ profile }) {
                         <div className="flex justify-between w-full gap-6 my-6">
                             <div className="w-100">
                                 <label for="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre*</label>
-                                <input type="text" name="first_name" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jose" value={profile.first_name} required/>
+                                <input type="text" name="first_name" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jose" defaultValue={profile.first_name} required/>
                             </div>
                             <div className="w-100">
                                 <label for="last_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellido*</label>
-                                <input type="text" name="last_name" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Perez" value={profile.last_name} required/>
+                                <input type="text" name="last_name" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Perez" defaultValue={profile.last_name} required/>
                             </div>
                         </div>
                         <div className="flex justify-between w-full gap-6 my-6">
                             <div className="w-100">
                                 <label for="birthdate" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento <span className="text-xs">(opcional)</span></label>
-                                <input type="date" name="birthdate" id="birthdate" value={profile.birthdate} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"/>
+                                <input type="date" name="birthdate" id="birthdate" defaultValue={profile.birthdate} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"/>
                             </div> 
                             <div className="w-100">
                                 <label for="phone" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Numero de Contacto <span className="text-xs">(opcional)</span></label>
-                                <input type="tel" name="phone" id="phone" value={profile.phone} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="8X9XXXXXXX"/>
+                                <input type="tel" name="phone" id="phone" defaultValue={profile.phone} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="8X9XXXXXXX"/>
                             </div>
                         </div>
                         <div className="my-6">
                             <label for="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion <span className="text-xs">(opcional)</span></label>
-                            <input type="text" name="address" id="address" value={profile.address} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Calle Max Henriquez Ureña #1"/>
+                            <input type="text" name="address" id="address" defaultValue={profile.address} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Calle Max Henriquez Ureña #1"/>
                         </div>
                         <div className="flex justify-between w-full gap-6 my-6">
                             <div className="w-full">
                                 <label for="state" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provincia <span className="text-xs">(opcional)</span></label>
-                                <select id="state" name="state" value={profile.state} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" defaultValue="">
-                                    <option value="" disabled>Selecciona tu provincia</option>
+                                <select id="state" name="state" defaultValue={profile.state} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" defaultdefaultValue="">
+                                    <option defaultValue="" disabled>Selecciona tu provincia</option>
                                     {provincias.map((p) => (
-                                        <option key={p.id} value={p.id}>
+                                        <option key={p.id} defaultValue={p.id}>
                                             {p.nombre}
                                         </option>
                                     ))}
@@ -99,33 +99,33 @@ export default function PersonalInfoForm({ profile }) {
                             </div>
                             <div className="w-full">
                                 <label for="website" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Website personal <span className="text-xs">(opcional)</span></label>
-                                <input type="url" name="website" id="website" value={profile.website} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.miwebsite.com"/>
+                                <input type="url" name="website" id="website" defaultValue={profile.website} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.miwebsite.com"/>
                             </div>
                         </div>
                     </div>
                     <div className="col-span-5">
                         <div className="sm:col-span-2">
                             <label for="bio" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Biografia <span className="text-xs">(opcional)</span></label>
-                            <textarea id="bio" name="bio" rows="5" value={profile.bio} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Me gustan los gatos!"></textarea>
+                            <textarea id="bio" name="bio" rows="5" defaultValue={profile.bio} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Me gustan los gatos!"></textarea>
                         </div>
                         <div className="flex justify-between w-full gap-6 my-6">
                             <div className="w-full">
                                 <label for="linkedin_url" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Linkedin URL <span className="text-xs">(opcional)</span></label>
-                                <input type="url" name="linkedin_url" id="linkedin_url" value={profile.linkedin_url} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.linkedin.com/in/jose-perez"/>
+                                <input type="url" name="linkedin_url" id="linkedin_url" defaultValue={profile.linkedin_url} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.linkedin.com/in/jose-perez"/>
                             </div>
                             <div className="w-full">
                                 <label for="fb_url" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Facebook URL<span className="text-xs">(opcional)</span></label>
-                                <input type="url" name="fb_url" id="fb_url" value={profile.fb_url} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.facebook.com/JosePerez"/>
+                                <input type="url" name="fb_url" id="fb_url" defaultValue={profile.fb_url} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="https://www.facebook.com/JosePerez"/>
                             </div>
                         </div>
                         <div className="flex justify-between w-full gap-6 my-6">
                             <div className="w-full">
                                 <label for="github_user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Github <span className="text-xs">(opcional)</span></label>
-                                <input type="text" name="github_user" id="github_user" value={profile.github_user} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="j-perez26"/>
+                                <input type="text" name="github_user" id="github_user" defaultValue={profile.github_user} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="j-perez26"/>
                             </div>
                             <div className="w-full">
                                 <label for="instagram_user" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Instagram <span className="text-xs">(opcional)</span></label>
-                                <input type="text" name="instagram_user" id="instagram_user" value={profile.instagram_user} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="j-perez26"/>
+                                <input type="text" name="instagram_user" id="instagram_user" defaultValue={profile.instagram_user} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="j-perez26"/>
                             </div>
                         </div>
                     </div>
