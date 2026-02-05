@@ -8,10 +8,10 @@ export async function updateInfoAction(prevState, formData) {
     const data = Object.fromEntries(formData);
 
     const payload = {
-        first_name: data.first_name || null,
-        last_name: data.last_name || null,
+        first_name: data.first_name,
+        last_name: data.last_name,
         birthdate: data.birthdate || null,
-        phone: data.phone ? Number(data.phone) : null,
+        phone: data.phone || null,
         address: data.address || null,
         state: data.state || null,
         website: data.website || null,

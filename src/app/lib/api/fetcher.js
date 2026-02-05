@@ -29,6 +29,7 @@ export default async function fetcher(endpoint, options = {}) {
     }
 
     if (!response.ok) {
+        console.log("fetcher response:", response)
         throw new Error(`API request failed (${response.status})`);
     }
     
