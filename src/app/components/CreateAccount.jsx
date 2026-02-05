@@ -11,12 +11,12 @@ const initialState = {
 
 
 export default function CreateAccount() {
-    const [termsAccepted, setTermsAccepted] = useState(false);
+    // const [termsAccepted, setTermsAccepted] = useState(false);
     const [state, formAction] = useFormState(registerAction, initialState);
 
-    function termsClicked() {
-        setTermsAccepted(!termsAccepted);
-    }
+    // function termsClicked() {
+    //     setTermsAccepted(!termsAccepted);
+    // }
     
 
 
@@ -28,7 +28,7 @@ export default function CreateAccount() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                             Crea tu cuenta
                         </h1>
-                        <div className="flex justify-between mt-4">
+                        {/* <div className="flex justify-between mt-4">
                             <button type="button" className="mx-2 flex-1 hover:cursor-not-allowed text-sm text-center border border-gray-300 px-4 py-2 rounded-md text-gray-300 hover:size-up">
                                 Sign up with Google
                             </button>
@@ -40,7 +40,7 @@ export default function CreateAccount() {
                             <hr className="my-6 border-gray-300 w-full"/>
                             <span className="text-white">or</span>
                             <hr className="my-6 border-gray-300 w-full"/>
-                        </div>
+                        </div> */}
                         <form className="space-y-4 md:space-y-6" action={formAction}>
                             {state?.error && (
                                 <div className="text-red-500 text-sm bg-red-100 p-2 rounded">
@@ -53,28 +53,29 @@ export default function CreateAccount() {
                                 <input type="text" name="username" id="username" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="MiUsuario123" required/>
                             </div>
                             <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electronico</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo Electrónico</label>
                                 <input type="email" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="jose.perez@unicaribe.edu.do" required/>
                             </div>
                             <div>
-                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contrasena</label>
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
                                 <input type="password" name="password" id="password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
                             </div>
                             <div>
-                                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Validar Contrasena</label>
+                                <label htmlFor="confirm-password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Confirmar Contraseña</label>
                                 <input type="password" name="confirm-password" id="confirm-password" placeholder="••••••••" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required/>
                             </div>
-                            <div className="flex items-start">
+                            {/* <div className="flex items-start">
                                 <div className="flex items-center h-5">
                                     <input onChange={termsClicked} id="terms" aria-describedby="terms" type="checkbox" className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" required/>
                                 </div>
                                 <div className="ml-3 text-sm">
                                     <label htmlFor="terms" className="font-light text-gray-500 dark:text-gray-300">Acepto los <a className="font-medium text-blue-600 hover:underline dark:text-blue-500" href="http://www.google.com" target="_parent">Terminos and Condiciones</a></label>
                                 </div>
-                            </div>
-                            <button className={`w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${termsAccepted ? "focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-600 hover:bg-blue-700 hover:cursor-pointer" : "dark:bg-blue-300 hover:cursor-not-allowed"}  dark:focus:ring-blue-800`}>Create an account</button>
+                            </div> */}
+                            {/* <button className={`w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center ${termsAccepted ? "focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-600 hover:bg-blue-700 hover:cursor-pointer" : "dark:bg-blue-300 hover:cursor-not-allowed"}  dark:focus:ring-blue-800`}>Create an account</button> */}
+                            <button className={`w-full text-white font-medium rounded-lg text-sm px-5 py-2.5 text-center focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 bg-blue-600 hover:bg-blue-700 hover:cursor-pointer dark:focus:ring-blue-800`}>Crear cuenta</button>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Ya tienes una cuenta? <a href="/login/" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Inicia sesion</a>
+                                Ya tienes una cuenta? <a href="/login/" className="font-medium text-blue-600 hover:underline dark:text-blue-500">Inicia sesión</a>
                             </p>
                         </form>
                     </div>
