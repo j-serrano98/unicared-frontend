@@ -53,7 +53,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                 <label htmlFor="teacher-name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Teacher</label>
                                 <select id="teacher-name" name="teacher" defaultValue={enrollment.teacher ?? ""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                     <option value="">Unassigned</option>
-                                    {teachersData.map((t) => <option key={t.id} value={t.id}>{t.name}</option>)}
+                                    {teachersData.map((t) => <option key={t.uuid} value={t.uuid}>{t.name}</option>)}
                                 </select>
                             </div>
                             <div className="w-full">
@@ -71,8 +71,8 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                 <input type="date" name="completion_date" id="completion-date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" defaultValue={enrollment.completion_date ?? ""} required=""/>
                             </div> 
                             <div className="sm:col-span-3">
-                                <label for="comment-review" class="block mb-2.5 text-sm font-medium text-heading dark:text-white">Message Review</label>
-                                <textarea id="comment-review" name="comment_review" rows="4" cols="4" class="bg-neutral-secondary-medium border rounded-md text-heading text-sm rounded-base focus:ring-brand dark:bg-gray-700 focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body text-white" placeholder="Write your thoughts here...">{enrollment.review?.comment ?? null}</textarea>
+                                <label htmlFor="comment-review" className="block mb-2.5 text-sm font-medium text-heading dark:text-white">Message Review</label>
+                                <textarea id="comment-review" name="comment_review" rows="4" cols="4" className="bg-neutral-secondary-medium border rounded-md text-heading text-sm rounded-base focus:ring-brand dark:bg-gray-700 focus:border-brand block w-full p-3.5 shadow-xs placeholder:text-body text-white" placeholder="Write your thoughts here...">{enrollment.review?.comment ?? null}</textarea>
                             </div> 
                         </div>
 
@@ -80,7 +80,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
 
 
                         <div className="relative overflow-x-auto bg-neutral-primary-soft shadow-xs rounded-base border border-default">
-                            <label for="comment-review" class="block mb-2.5 text-sm font-medium text-heading dark:text-white">Review</label>
+                            <label htmlFor="comment-review" className="block mb-2.5 text-sm font-medium text-heading dark:text-white">Review</label>
                             <table className="w-full text-sm text-center text-body">
                                 <thead className="text-sm text-body bg-neutral-secondary-soft border-b rounded-base border-default dark:bg-gray-700">
                                     <tr>
@@ -94,7 +94,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                                 {rs.charAt(0).toUpperCase()}{rs.slice(1,rs.length)}
                                             </th>
                                             {Array.from({ length: 10 }).map((_, i) => (
-                                                    <td className="px-1 py-4">
+                                                    <td key={i} className="px-1 py-4">
                                                         <input defaultChecked={enrollmentData.review?.skills?.filter(s => s.skill.toLowerCase() == rs)[0]['score']==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
                                                     </td>
                                                 ))}
@@ -108,7 +108,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                     <div className="grid sm:grid-cols-2 sm:gap-6 sm:mb-5">
                         <div className="flex items-center justify-end space-x-4">
                             <button type="submit" className="text-white bg-green-700 hover:bg-green-900 hover:cursor-pointer hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                Update product
+                                Update
                             </button>
                             <GoBackButton/>
                         </div>

@@ -1,7 +1,6 @@
 import fetcher from "./fetcher";
 
 export function updateInfo(payload) {
-    console.log("profile.js: ", payload)
     return fetcher(`profile/me/`, {
         method: "PATCH",
         body: JSON.stringify(payload)
