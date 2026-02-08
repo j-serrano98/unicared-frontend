@@ -30,7 +30,7 @@ export default function SelectCareerForm({ profile, careers }) {
         <section className="py-4 h-full">
             <h2 className="mb-4 text-xl font-bold text-gray-900">3. Selecciona tu Carrera</h2>
             <form action={formAction} className="h-full">
-                <div className="grid grid-cols-4 gap-4 bg-gray-900 p-8 rounded-xl overflow-auto h-[50vh]">
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 bg-gray-900 p-8 rounded-xl overflow-auto h-[50vh]">
                     {careers.sort((a, b) => a.id - b.id).slice(0,5).map((career) => {
                         
                         return (
@@ -50,9 +50,9 @@ export default function SelectCareerForm({ profile, careers }) {
                     )}
                 </div>
                 <div className="pt-4">
-                    <div className="gap-4 sm:flex sm:items-center sm:justify-between">
-                        <a onClick={() => goBack()} className="mt-4 flex w-full items-center justify-center rounded-lg border border-gray-900 bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:border-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:border-primary-700 dark:bg-primary-600 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800  sm:mt-0 sm:w-auto">Atras</a>
-                        <div className="flex gap-3">
+                    <div className="gap-4 sm:flex items-center justify-end">
+                        <div className="flex gap-3 items-baseline">
+                            <a onClick={() => goBack()} className="mt-4 flex w-full items-center justify-center rounded-lg border border-gray-900 bg-gray-900 px-5 md:px-8 py-2.5 text-sm font-medium text-white hover:border-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:border-primary-700 dark:bg-primary-600 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800  sm:mt-0 sm:w-auto">Atras</a>
                             <a  onClick={() => skipForm()} className="mr-3 mb-4 hover:cursor-pointer hover:underline  px-5 py-2.5 text-sm font-medium text-gray-900  hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 sm:mb-0">Omitir</a>
                             <button  className="hover:cursor-pointer mt-4 flex w-full items-center justify-center rounded-lg border border-gray-900 bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:border-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:border-primary-700 dark:bg-primary-600 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800  sm:mt-0 sm:w-auto">Siguiente</button>
                         </div>
