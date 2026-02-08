@@ -59,9 +59,9 @@ export default function PersonalInfoForm({ profile }) {
         <section className="py-4">
             <h2 className="mb-4 text-xl font-bold text-gray-900">2. Datos Personales</h2>
             <form action={formAction}>
-                <div className="grid gap-4 grid-cols-10 gap-6 bg-gray-900 p-8 rounded-xl">
-                    <div className="col-span-5 gap-6">
-                        <div className="flex justify-between w-full gap-6 my-6">
+                <div className="grid gap-4 grid-cols-2 md:grid-cols-10 gap-6 bg-gray-900 p-8 rounded-xl">
+                    <div className="col-span-2 md:col-span-5 gap-6">
+                        <div className="flex justify-between w-full gap-6 mb-6">
                             <div className="w-100">
                                 <label htmlFor="first_name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre*</label>
                                 <input type="text" name="first_name" id="first_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Jose" defaultValue={profile.first_name} required/>
@@ -71,7 +71,7 @@ export default function PersonalInfoForm({ profile }) {
                                 <input type="text" name="last_name" id="last_name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Perez" defaultValue={profile.last_name} required/>
                             </div>
                         </div>
-                        <div className="flex justify-between w-full gap-6 my-6">
+                        <div className="flex justify-between w-full gap-6 mb-6">
                             <div className="w-100">
                                 <label htmlFor="birthdate" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha de Nacimiento <span className="text-xs">(opcional)</span></label>
                                 <input type="date" name="birthdate" id="birthdate" defaultValue={profile.birthdate} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"/>
@@ -81,11 +81,11 @@ export default function PersonalInfoForm({ profile }) {
                                 <input type="tel" name="phone" id="phone" defaultValue={profile.phone} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="8X9XXXXXXX"/>
                             </div>
                         </div>
-                        <div className="my-6">
+                        <div className="mb-6">
                             <label htmlFor="address" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Direccion <span className="text-xs">(opcional)</span></label>
                             <input type="text" name="address" id="address" defaultValue={profile.address} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Calle Max Henriquez Ureña #1"/>
                         </div>
-                        <div className="flex justify-between w-full gap-6 my-6">
+                        <div className="flex justify-between w-full gap-6 md:my-6">
                             <div className="w-full">
                                 <label htmlFor="state" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Provincia <span className="text-xs">(opcional)</span></label>
                                 <select id="state" name="state" defaultValue={profile.state} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" defaultValue="">
@@ -103,7 +103,7 @@ export default function PersonalInfoForm({ profile }) {
                             </div>
                         </div>
                     </div>
-                    <div className="col-span-5">
+                    <div className="col-span-2 md:col-span-5">
                         <div className="sm:col-span-2">
                             <label htmlFor="bio" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Biografia <span className="text-xs">(opcional)</span></label>
                             <textarea id="bio" name="bio" rows="5" defaultValue={profile.bio} className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Me gustan los gatos!"></textarea>
@@ -130,9 +130,9 @@ export default function PersonalInfoForm({ profile }) {
                         </div>
                     </div>
                 </div>
-                <div className="pt-4">
-                    <div className="gap-4 sm:flex sm:items-center justify-end">
-                        <div className="flex gap-3">
+                <div className="pt-2 md:pt-4">
+                    <div className="gap-4 sm:flex items-center justify-end">
+                        <div className="flex gap-3 items-baseline">
                             <a  onClick={() => skipForm()} className="mr-3 mb-4 hover:cursor-pointer hover:underline  px-5 py-2.5 text-sm font-medium text-gray-900  hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-gray-100 sm:mb-0">Omitir</a>
                             <button  className="hover:cursor-pointer mt-4 flex w-full items-center justify-center rounded-lg border border-gray-900 bg-gray-900 px-5 py-2.5 text-sm font-medium text-white hover:border-gray-800 hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:border-primary-700 dark:bg-primary-600 dark:hover:border-primary-700 dark:hover:bg-primary-700 dark:focus:ring-primary-800  sm:mt-0 sm:w-auto">Siguiente</button>
                         </div>
