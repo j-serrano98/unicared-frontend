@@ -20,7 +20,7 @@ export default async function PersonalInfoPage() {
 
     }
     return(
-            <div className="mx-auto max-w-screen-xl p-10 h-full">
+            <div className="mx-auto max-w-screen-xl p-6 h-full">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-6">Proceso de Registro</h2>
                 <div className="">
                     <StepByStep step={2}/>
