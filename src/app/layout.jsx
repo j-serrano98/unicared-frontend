@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://unicared.tech'),
   title: {
     default: 'UnicaRed | Recursos y Reseñas para Estudiantes',
     template: '%s | UnicaRed'
@@ -24,12 +25,26 @@ export const metadata = {
   authors: [{ name: 'UnicaRed Team' }],
   creator: 'UnicaRed',
   openGraph: {
-    title: 'UnicaRed - Empoderando a la comunidad estudiantil',
+    title: 'UnicaRed - Recursos y Reseñas para Estudiantes',
     description: 'Descubre opiniones reales sobre profesores y accede a los mejores recursos para tu formación profesional.',
     url: 'https://unicared.tech',
     siteName: 'UnicaRed',
     locale: 'es_DO',
     type: 'website',
+    images: [
+      {
+        url: '/opengraph-image.png', 
+        width: 1200,
+        height: 630,
+        alt: 'UnicaRed - Plataforma Estudiantil',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'UnicaRed | Recursos y Reseñas para Estudiantes',
+    description: 'Encuentra reseñas de profesores y recursos para tu carrera.',
+    images: ['/opengraph-image.png'], 
   },
   robots: {
     index: true,
