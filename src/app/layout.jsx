@@ -14,6 +14,29 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const metadata = {
+  title: {
+    default: 'UnicaRed | Recursos y Reseñas para Estudiantes',
+    template: '%s | UnicaRed'
+  },
+  description: 'La plataforma definitiva para estudiantes: encuentra reseñas de profesores, recursos para tu carrera y herramientas para gestionar tu pensum.',
+  keywords: ['UnicaRed', 'reseñas de profesores', 'recursos estudiantiles', 'universidad', 'pensum', 'estudiantes'],
+  authors: [{ name: 'UnicaRed Team' }],
+  creator: 'UnicaRed',
+  openGraph: {
+    title: 'UnicaRed - Empoderando a la comunidad estudiantil',
+    description: 'Descubre opiniones reales sobre profesores y accede a los mejores recursos para tu formación profesional.',
+    url: 'https://unicared.tech',
+    siteName: 'UnicaRed',
+    locale: 'es_DO',
+    type: 'website',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
+
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
   const token = cookieStore.get("authToken")?.value;
@@ -28,7 +51,7 @@ export default async function RootLayout({ children }) {
   }
 
   return (
-    <html lang="en" className="h-full">
+    <html lang="es" className="h-full">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
         <div className="flex flex-col h-full">
           

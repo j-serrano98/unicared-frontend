@@ -4,6 +4,26 @@ import Charts from "@/app/components/Charts";
 import GoBackButton from "@/app/components/GoBackButton";
 import fetcher from "@/app/lib/api/fetcher";
 
+export async function generateMetadata({ params }) {
+    const { teacherId } = await params;
+
+    const teacherData = await fetcher(`teachers/${teacherId}/`, {
+        cache: 'no-store',
+    });
+
+    if (!teacherData) return { title: "Profesor no encontrado" };
+
+    return {
+        title: `Reseñas de ${teacherData.name}`,
+        description: `Lee lo que otros estudiantes dicen sobre ${teacherData.name} en UnicaRed. Consulta su metodología y nivel de dificultad.`,
+        // openGraph: {
+        //     title: `Perfil de ${teacherData.name} | UnicaRed`,
+        //     description: `¿Vas a tomar clase con ${teacherData.name}? Mira sus reseñas antes de inscribirte.`,
+        // },
+    };
+}
+
+
 export default async function TeacherPage({ params }) {
     const { teacherId } = await params;
 

@@ -2,6 +2,10 @@ import CollaborationCard from "../components/info-cards/Collaboration"
 import AddTeacherRequest from "../components/info-cards/AddTeacherRequest"
 import TopUsers from "../components/TopUsers"
 
+export const metadata = {
+  title: "Profesores"
+}
+
 export default function TeacherPagesLayout( { children }) {
 
     return(
