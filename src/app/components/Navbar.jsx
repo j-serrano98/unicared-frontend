@@ -1,6 +1,8 @@
 "use client"
 
 import LogoutButton from "./LogoutButton"
+import { logoutAction } from "../actions/logout";
+import { useRouter } from "next/navigation";
 import React, { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 
@@ -24,6 +26,13 @@ export default function Navbar({ isAuthenticated, profile }) {
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    const router = useRouter();
+
+    async function handleLogout() {
+        await logoutAction();
+        router.push("/");
+    }
 
 
     return (
@@ -71,7 +80,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                                         <li><a href="#" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Ajustes </a></li>
                                     </ul>
                                     <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
-                                        <li className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600 hover:cursor-pointer"><LogoutButton/></li>
+                                        <li onClick={handleLogout} className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600 hover:cursor-pointer">Logout</li>
                                     </ul>
                                 </div>
                             </div>
@@ -97,8 +106,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                         ?
                         <ul className="font-medium flex flex-col py-4 md:p-0 mt-4 bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
                             <li><a href="/me" title="" className={`${menuOpen ? "block hover:bg-gray-700 md:hidden" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} > Mi Perfil </a></li>
-                            {/* <li><a href="#" title="" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} > Ajustes </a></li> */}
-                            <li className={`${menuOpen ? "block hover:bg-gray-700 md:hidden" : "hidden"} py-2 px-3`}><LogoutButton/></li>
+                            <li onClick={handleLogout} className={`${menuOpen ? "block hover:bg-gray-700 md:hidden" : "hidden"} py-2 px-3 hover:cursor-pointer`}>Logout</li>
                         </ul>
                         :
                         <ul className="md:hidden font-medium flex flex-col py-4 md:p-0 mt-4 bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">

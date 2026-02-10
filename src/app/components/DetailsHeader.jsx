@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import ProfilePicture from '../../../public/profile-picture-3.jpg';
+import ProfilePicture from '../../../public/teacher-avatar.jpeg';
 import Charts from './Charts';
 
 export default function DetailsHeader({ teacherData }) {
@@ -12,12 +12,12 @@ export default function DetailsHeader({ teacherData }) {
                     <Image className="w-24 h-24 mb-6 rounded-full" src={ProfilePicture} alt="" />
                     <div>
                         <h5 className="mb-0.5 text-xl font-semibold tracking-tight text-heading">{teacherData.name}</h5>
-                        <span className="bg-gray-600 text-sm text-heading font-medium px-1.5 py-0.5 rounded">{teacherData.department_name}</span>
+                        {teacherData.department_name && <span className="bg-gray-600 text-sm text-heading font-medium px-1.5 py-0.5 rounded">{teacherData.department_name}</span>}
                     </div>
                 </div>
                 <div>
                     <h1 className="text-lg font-semibold">Materias</h1>
-                    {teacherData.subjects.map(subject => (
+                    {teacherData.subjects.sort().map(subject => (
                         <p key={subject} className="text-sm text-body">{subject}</p>
                     ))}
                 </div>
