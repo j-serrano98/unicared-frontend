@@ -68,6 +68,7 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="es" className="h-full">
+    <html lang="es" className="h-full">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased h-full`}>
         <div className="flex flex-col h-full">
           
