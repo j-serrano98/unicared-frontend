@@ -264,7 +264,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     </tr>
                             </thead>
                             <tbody>
-                                {!profile.onboarding_completed 
+                                {!profile.onboarding_completed && !(sortedEnrollments.length > 0)
                                     ?
                                     <td colSpan={8} className="px-4 py-[10rem] text-center text-lg font-semibold text-gray-700 dark:text-white">
                                         Selecciona tu <a href="/register/career" className="text-red-700">carrera</a> para visualizar tus materias.
@@ -272,7 +272,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     :
                                     ""
                                 }
-                                {sortedEnrollments.map((enrollment, index) => {
+                                {sortedEnrollments.sort((a,b) => a.subject - b.subject).map((enrollment, index) => {
                                     const prev = sortedEnrollments[index - 1];
                                     const showPeriodHeader = index === 0 || enrollment.subject_period != prev.subject_period;
 
