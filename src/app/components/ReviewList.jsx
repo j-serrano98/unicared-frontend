@@ -119,7 +119,7 @@ export default function ReviewList({ teacherData }) {
                                 <p className="text-sm font-medium text-gray-900 dark:text-white">{review.subject_name}</p>
                                 <p className="text-base font-normal text-gray-500 dark:text-gray-400">{review.comment}</p>
 
-                                <div className="flex items-center gap-4">
+                                {/* <div className="flex items-center gap-4">
                                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Te resulto util?</p>
                                     <div className="flex items-center">
                                     <input id="reviews-radio-1" type="radio" value="" name="reviews-radio" className="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
@@ -129,7 +129,7 @@ export default function ReviewList({ teacherData }) {
                                     <input id="reviews-radio-2" type="radio" value="" name="reviews-radio" className="h-4 w-4 border-gray-300 bg-gray-100 text-primary-600 focus:ring-2 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-primary-600" />
                                     <label htmlFor="reviews-radio-2" className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">No: 0 </label>
                                     </div>
-                                </div>
+                                </div> */}
                                 </div>
                             </div>
 
