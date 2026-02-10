@@ -16,7 +16,6 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   metadataBase: new URL('https://unicared.tech'),
-  
   title: {
     default: 'UnicaRed | Recursos y Reseñas para Estudiantes',
     template: '%s | UnicaRed'
