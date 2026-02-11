@@ -11,7 +11,7 @@ export async function updateEnrollmentAction(prevState, formData) {
     const data = Object.fromEntries(formData);
 
     const payload = {
-        teacher: data.teacher ? Number(data.teacher) : null,
+        teacher: data.teacher ? data.teacher : null,
         status: data.status || null,
         grade: data.grade ? Number(data.grade) : null,
         completion_date: data.completion_date || null,
