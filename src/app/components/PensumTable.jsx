@@ -186,7 +186,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     :
                                     ""
                                 }
-                                {sortedEnrollments.map((enrollment, index) => {
+                                {sortedEnrollments.sort((a,b) => a.subject - b.subject).map((enrollment, index) => {
                                     const prev = sortedEnrollments[index - 1];
                                     const showPeriodHeader = index === 0 || enrollment.subject_period != prev.subject_period;
 
