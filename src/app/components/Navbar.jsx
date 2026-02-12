@@ -36,7 +36,7 @@ export default function Navbar({ isAuthenticated, profile }) {
 
 
     return (
-        <nav className='bg-white border-gray-200 dark:bg-gray-900 text-white px-6 py-3 relative'>
+        <nav className='border-gray-200 bg-gray-900 text-white px-6 py-3 relative'>
             <div className='container-xl lg:container m-auto max-w-screen-xl flex flex-wrap items-center justify-between mx-auto'>
 
                 <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
@@ -58,7 +58,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                         <div className="flex gap-4">
 
                             <div ref={lgDropdownRef} className="relative">
-                                <button onClick={() => setLgMenuOpen(prev => !prev)} id="accountButton" type="button" className="hidden md:inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 dark:text-white">
+                                <button onClick={() => setLgMenuOpen(prev => !prev)} id="accountButton" type="button" className="hidden md:inline-flex items-center rounded-lg justify-center p-2 hover:bg-gray-100 hover:bg-gray-700 text-sm font-medium leading-none text-gray-900 text-white">
                                     <svg className="w-5 h-5 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                         <path stroke="currentColor" strokeWidth="2" d="M7 17v1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1a3 3 0 0 0-3-3h-4a3 3 0 0 0-3 3Zm8-9a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
                                     </svg>              
@@ -68,18 +68,18 @@ export default function Navbar({ isAuthenticated, profile }) {
                                     </svg> 
                                 </button>
 
-                                <div id="lg-display-dropdown" className={`absolute right-0 mt-2 z-50 w-65 divide-y divide-gray-100 rounded-lg bg-white shadow-xl dark:divide-gray-600 dark:bg-gray-700 transition-all duration-200 ease-out origin-top-right ${lgMenuOpen ? "opacity-100 scale-100 translate-y-0 visible" : "opacity-0 scale-95 -translate-y-2 invisible"}`}>
-                                    <div className="px-3 py-5 text-md font-medium text-gray-900 dark:text-white text-center">
+                                <div id="lg-display-dropdown" className={`absolute right-0 mt-2 z-50 w-65 divide-y divide-gray-100 rounded-lg shadow-xl divide-gray-600 bg-gray-800 transition-all duration-200 ease-out origin-top-right ${lgMenuOpen ? "opacity-100 scale-100 translate-y-0 visible" : "opacity-0 scale-95 -translate-y-2 invisible"}`}>
+                                    <div className="px-3 py-5 text-md font-medium text-gray-900 text-white text-center">
                                         <span className="font-bold">Bienvenido, {profile?.first_name} {profile?.last_name}</span>
                                         <br />
                                         <span className="text-sm">{profile?.email}</span>
                                     </div>
                                     
-                                    <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
+                                    <ul className="p-2 text-start text-sm font-medium text-white">
                                         <li><a href="/me" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Mi Perfil </a></li>
                                         <li><a href="#" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Ajustes </a></li>
                                     </ul>
-                                    <ul className="p-2 text-start text-sm font-medium text-gray-900 dark:text-white">
+                                    <ul className="p-2 text-start text-sm font-medium text-white">
                                         <li onClick={handleLogout} className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600 hover:cursor-pointer">Logout</li>
                                     </ul>
                                 </div>
@@ -88,11 +88,11 @@ export default function Navbar({ isAuthenticated, profile }) {
                         </div>
                         : 
                         <div className="hidden lg:flex">
-                            <a href="/login/" className="text-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  dark:hover:bg-gray-700 dark:focus:ring-gray-800">Inicia Sesion</a>
-                            <a href="/register/" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 ms-2">Registrate</a>
+                            <a href="/login/" className="text-white hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  focus:ring-gray-800">Inicia Sesion</a>
+                            <a href="/register/" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center  focus:ring-blue-800 ms-2">Registrate</a>
                         </div>
                     }
-                    <button onClick={() => setMenuOpen(prev => !prev)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded={menuOpen}>
+                    <button onClick={() => setMenuOpen(prev => !prev)} type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 text-gray-400 hover:bg-gray-700 focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded={menuOpen}>
                         <span className="sr-only">Open main menu</span>
                         <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
                             <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15"/>
@@ -114,7 +114,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                                 <a href="/login/" className={`${menuOpen ? "block hover:bg-gray-700 " : "hidden"} py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0`} aria-current="page">Inicia Sesion</a>
                             </li>
                             <li>
-                                <a href="/register/" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent`}>Registrate</a>
+                                <a href="/register/" className={`${menuOpen ? "block hover:bg-gray-700" : "hidden"} py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:hover:bg-transparent`}>Registrate</a>
                             </li>
                         </ul>
                     }
