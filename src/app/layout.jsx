@@ -25,7 +25,7 @@ export const metadata = {
   authors: [{ name: 'UnicaRed Team' }],
   creator: 'UnicaRed',
   openGraph: {
-    title: 'UnicaRed - Recursos y Reseñas para Estudiantes',
+    title: 'UnicaRed | Recursos y Reseñas para Estudiantes',
     description: 'Descubre opiniones reales sobre profesores y accede a los mejores recursos para tu formación profesional.',
     url: 'https://unicared.tech',
     siteName: 'UnicaRed',
@@ -43,7 +43,7 @@ export const metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'UnicaRed | Recursos y Reseñas para Estudiantes',
-    description: 'Encuentra reseñas de profesores y recursos para tu carrera.',
+    description: 'Descubre opiniones reales sobre profesores y accede a los mejores recursos para tu formación profesional.',
     images: ['/opengraph-image.png'], 
   },
   robots: {
