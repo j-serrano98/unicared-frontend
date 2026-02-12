@@ -82,6 +82,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                             <div className="ps-2">
                                 <div className="flex flex-colum gap-5 pt-7">
                                     <div>
+<<<<<<< HEAD
                                         <div className="font-semibold text-gray-900 text-white">Carrera Iniciada</div>
                                         <div className="text-gray-500 text-gray-400">{statsData?.start_date}</div>
                                     </div>
@@ -89,6 +90,15 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     <div>
                                         <div className="font-semibold text-gray-900 text-white">Finaliza (Est.)</div>
                                         <div className="text-gray-500 text-gray-400">{statsData?.end_date}</div>
+=======
+                                        <div className="font-semibold text-gray-900 dark:text-white">Started Date</div>
+                                        <div className="text-gray-500 dark:text-gray-400">{statsData?.start_date}</div>
+                                    </div>
+                                        
+                                    <div>
+                                        <div className="font-semibold text-gray-900 dark:text-white">End Date (Est.)</div>
+                                        <div className="text-gray-500 dark:text-gray-400">{statsData?.end_date}</div>
+>>>>>>> main
                                     </div>
                                 </div>
                             </div>
