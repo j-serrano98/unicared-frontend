@@ -66,7 +66,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     alt="Picture of the author"
                                     />
                                     <div>
-                                    <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 text-beige-300`}>{currentCategory.level}</span>
+                                    <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 text-beige-300`}>{statsData?.current_rank.level_name}</span>
                                     <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 text-white sm:text-2xl">{profile.first_name ? `${profile.first_name} ${profile.last_name} (${profile?.username})` : `${profile?.username}`}</h2>
                                     <div className="flex items-center gap-1 text-gray-500 text-gray-400">{profile.career_name}</div>
                                     {/* <div className="text-gray-500 text-gray-400">{profile.email}</div> */}
@@ -238,7 +238,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                                     </div>
                                                 </td>
                                                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">{enrollment.subject_credits}</td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">{enrollment.completion_date != null ? enrollment.grade : "--"}</td>
+                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">{enrollment.grade != null ? enrollment.grade : "--"}</td>
                                                 <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">
                                                     <div className="flex items-center">
                                                         {enrollment.review?.average != null ?
