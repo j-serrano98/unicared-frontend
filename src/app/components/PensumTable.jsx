@@ -2,39 +2,16 @@
 import React, { useState, useEffect } from "react"
 import Image from 'next/image'
 
-const PAGE_SIZE = 8;
-
 const statusOptions = [
-        { value: "NT", label: "Not taken" },
-        { value: "IP", label: "In progress" },
-        { value: "CM", label: "Completed" },
+        { value: "NT", label: "Sin Iniciar" },
+        { value: "IP", label: "En Progreso" },
+        { value: "CM", label: "Completado" },
     ];
-
-const tenureCategories = [
-    { rate: 0.00, level: "Syntax Error", color: "slate" },
-    { rate: 0.003, level: "Hello World Hero", color: "emerald" },
-    { rate: 0.014, level: "Git Commit Gambler", color: "green" },
-    { rate: 0.035, level: "Function Farmer", color: "teal" },
-    { rate: 0.066, level: "The Bug Producer", color: "cyan" },
-    { rate: 0.109, level: "Logic Labrator", color: "sky" },
-    { rate: 0.164, level: "Refactor Rookie", color: "blue" },
-    { rate: 0.232, level: "StackOverflow MVP", color: "indigo" },
-    { rate: 0.314, level: "Deployment Daredevil", color: "violet" },
-    { rate: 0.411, level: "Microservice Miner", color: "purple" },
-    { rate: 0.523, level: "Design Pattern Priest", color: "fuchsia" },
-    { rate: 0.651, level: "Legacy Code Exorcist", color: "pink" },
-    { rate: 0.795, level: "System Sorcerer", color: "orange" },
-    { rate: 0.957, level: "The 10x Myth", color: "amber" },
-    { rate: 1.00, level: "The Senior Principal Deity", color: "yellow" }
-];
 
 export default function PensumTable( { profileData, enrollmentData, statsData }) {
 
     const [profile, setProfile] = useState([]);
     const sortedEnrollments = [...enrollmentData].sort((a,b) => a.subject_period - b.subject_period);
-
-    const completionRate = statsData?.completion_rate || 0;
-    const currentCategory = [...tenureCategories].reverse().find(tier => completionRate >= tier.rate)
 
     useEffect(() => {
 
@@ -55,8 +32,8 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
             <div className="mx-auto max-w-screen-2xl px-4 2xl:px-12">
                 <div className="">
                     <div className="mb-4 grid gap-4 sm:gap-8 lg:gap-16">
-                        <div className="grid sm:grid-cols-4 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
-                            <div className="flex justify-between">
+                        <div className="grid md:grid-cols-6 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                            <div className="flex justify-between col-span-2">
                                 <div className="flex space-x-4">
                                     <Image
                                     className="rounded-lg"
@@ -67,7 +44,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     />
                                     <div>
                                     <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 text-beige-300`}>{statsData?.current_rank.level_name}</span>
-                                    <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 text-white sm:text-2xl">{profile.first_name ? `${profile.first_name} ${profile.last_name} (${profile?.username})` : `${profile?.username}`}</h2>
+                                    <h2 className="flex items-center text-xl font-bold leading-none text-gray-900 text-white sm:text-2xl">{profile.first_name ? `${profile.first_name} ${profile.last_name}` : `${profile?.username}`}</h2>
                                     <div className="flex items-center gap-1 text-gray-500 text-gray-400">{profile.career_name}</div>
                                     {/* <div className="text-gray-500 text-gray-400">{profile.email}</div> */}
                                     </div>
@@ -80,7 +57,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 </button> */}
                             </div>
                             <div className="ps-2">
-                                <div className="flex flex-colum gap-5 pt-7">
+                                <div className="flex flex-colum gap-5 pt-4 md:pt-0">
                                     <div>
                                         <div className="font-semibold text-gray-900 text-white">Carrera Iniciada</div>
                                         <div className="text-gray-500 text-gray-400">{statsData?.start_date}</div>
@@ -92,9 +69,9 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     </div>
                                 </div>
                             </div>
-                            <div className="ps-2">
+                            <div className="ps-2 col-span-2">
                                 {/* <div className="flex flex-colum gap-5 pt-3"> */}
-                                <div className="flex flex-colum gap-5 pt-7">
+                                <div className="flex flex-colum gap-5 pt-4 md:pt-0">
                                     <div>
                                         <div className="font-semibold text-gray-900 text-white">Asignaturas</div>
                                         <div className="text-xl text-gray-500 text-gray-400">{statsData?.total_enrollments ?? 0}</div>
@@ -114,7 +91,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 </div>
                             </div>
                             <div className="ps-2">
-                                <div className="flex-colum gap-5 pt-7">
+                                <div className="flex-colum gap-5 pt-4 md:pt-0">
                                     <div className="font-semibold text-gray-900 text-white">Reseñas Completadas</div>
                                     <div className="text-xl text-gray-500 text-gray-400">{statsData?.total_reviews ?? 0}</div>
                                 </div>
@@ -127,121 +104,102 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
             <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
                 <div className="relative overflow-hidden shadow-md bg-gray-800 sm:rounded-lg">
-                    {/* <div className="flex flex-col px-4 py-3 space-y-3 lg:flex-row lg:items-center lg:justify-between lg:space-y-0 lg:space-x-4">
-                        <div className="flex items-center flex-1 space-x-4">
-                            <h5>
-                                <span className="text-gray-500">Total Materias:</span>
-                                <span className="text-white">{enrollmentData.length}</span>
-                            </h5>
-                        </div>
-                        <div className="flex flex-col flex-shrink-0 space-y-3 md:flex-row md:items-center lg:justify-end md:space-y-0 md:space-x-3">
-                            <button type="button" className="flex items-center justify-center px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-primary-800">
-                                <svg className="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                                    <path clipRule="evenodd" fillRule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" />
-                                </svg>
-                                Add new product
-                            </button>
-                            <button type="button" className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 focus:ring-gray-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700">
-                                <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="none" viewbox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
-                                </svg>
-                                Update stocks 1/250
-                            </button>
-                            <button type="button" className="flex items-center justify-center flex-shrink-0 px-3 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg focus:outline-none hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:ring-4 focus:ring-gray-200 focus:ring-gray-700 bg-gray-800 text-gray-400 border-gray-600 hover:text-white hover:bg-gray-700">
-                                <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24" strokeWidth="2" stroke="currentColor" aria-hidden="true">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
-                                </svg>
-                                Export
-                            </button>
-                        </div>
-                    </div> */}
                     <div className="h-screen overflow-y-auto mb-5 border border-gray-700">
                         <table className="w-full text-sm text-left text-gray-500 text-gray-400 table-fixed">
-                            <thead className="sticky top-0 z-10 text-xs text-gray-700 uppercase bg-gray-50 bg-gray-700 text-gray-400 ">
-                                    <tr>
-                                        <th scope="col" className="w-12 p-4">
-                                            <div className="flex items-center">
-                                                <input id="checkbox-all" type="checkbox" className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-primary-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600"/>
-                                                <label htmlFor="checkbox-all" className="sr-only">checkbox</label>
-                                            </div>
-                                        </th>
-                                        <th className="w-64 px-4 py-3">Subject</th>
-                                        <th className="w-48 px-4 py-3">Teacher</th>
-                                        <th className="w-40 px-4 py-3">Status</th>
-                                        <th className="w-24 px-4 py-3">Credits</th>
-                                        <th className="w-24 px-4 py-3">Score</th>
-                                        <th className="w-48 px-4 py-3">Review</th>
-                                        <th className="w-40 px-4 py-3">Completion Date</th>
-                                    </tr>
+                            <thead className="sticky top-0 z-10 text-xs text-white uppercase bg-gray-700">
+                                <tr>
+                                    <th scope="col" className="w-10 p-4"></th>
+                                    <th className="w-40 md:w-80 px-4 py-3">Asignatura</th>
+                                    <th className="w-80 px-12 py-3 hidden md:table-cell">Profesor</th>
+                                    <th className="w-15 md:w-40 px-4 py-3 text-center">Estado</th>
+                                    <th className="w-24 px-4 py-3 hidden md:table-cell text-center">Creditos</th>
+                                    <th className="w-25 md:w-24 py-3 text-center">Calificación</th>
+                                    <th className="w-48 px-4 py-3 hidden md:table-cell text-center">Reseña</th>
+                                    <th className="w-40 px-4 py-3 hidden md:table-cell text-center">Fecha Completada</th>
+                                </tr>
                             </thead>
                             <tbody>
-                                {!profile.onboarding_completed 
-                                    ?
-                                    <td colSpan={8} className="px-4 py-[10rem] text-center text-lg font-semibold text-gray-700 text-white">
-                                        Selecciona tu <a href="/register/career" className="text-red-700">carrera</a> para visualizar tus materias.
-                                    </td>
-                                    :
-                                    ""
-                                }
-                                {sortedEnrollments.sort((a,b) => a.subject - b.subject).map((enrollment, index) => {
+                                {!profile.onboarding_completed ? (
+                                    <tr>
+                                        <td colSpan={8} className="px-4 py-[10rem] text-center text-lg font-semibold text-white">
+                                            Selecciona tu <a href="/register/career" className="text-red-700">carrera</a> para visualizar tus materias.
+                                        </td>
+                                    </tr>
+                                ) : null}
+
+                                {sortedEnrollments.sort((a, b) => a.subject - b.subject).map((enrollment, index) => {
                                     const prev = sortedEnrollments[index - 1];
-                                    const showPeriodHeader = index === 0 || enrollment.subject_period != prev.subject_period;
+                                    const showPeriodHeader = index === 0 || enrollment.subject_period !== prev.subject_period;
 
                                     const reviewAverage = enrollment.review?.average;
                                     const filledStars = Math.round(reviewAverage / 2);
                                     const emptyStars = 5 - Math.round(reviewAverage / 2);
-                                    return(
+
+                                    return (
                                         <React.Fragment key={enrollment.id}>
                                             {showPeriodHeader && (
                                                 <tr className="bg-[#1F2937]">
-                                                    <td className="w-4 px-4 py-3">
-                                                        <div className="flex items-center">
-                                                            <input id="checkbox-table-search-1" type="checkbox" onClick={(e) => e.stopPropagation()} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-primary-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600"/>
-                                                            <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
-                                                        </div>
-                                                    </td>
                                                     <td
-                                                        colSpan={7}
-                                                        className="px-4 py-2 text-sm font-semibold text-gray-700 text-white"
+                                                        colSpan={8} // Always set to max
+                                                        className="w-100 md:w-auto px-4 md:px-16 py-2 text-sm font-semibold text-white block md:table-cell flex"
                                                     >
-                                                        PERIOD {enrollment.subject_period}
+                                                        <span className="text-center md:text-start">
+                                                            {enrollment.subject_period}º CUATRIMESTRE
+                                                        </span>
                                                     </td>
                                                 </tr>
                                             )}
 
-
-                                            <tr className="border-b border-gray-600 bg-[#111827] hover:bg-gray-100 hover:bg-gray-700">
+                                            <tr className="border-b border-gray-600 bg-[#111827] hover:bg-gray-700">
                                                 <td className="w-4 px-4 py-3">
-                                                    <div className="flex items-center">
-                                                        <input id="checkbox-table-search-1" type="checkbox" onClick={(e) => e.stopPropagation()} className="w-4 h-4 bg-gray-100 border-gray-300 rounded text-primary-600 focus:ring-primary-500 focus:ring-primary-600 ring-offset-gray-800 focus:ring-2 bg-gray-700 border-gray-600"/>
-                                                        <label htmlFor="checkbox-table-search-1" className="sr-only">checkbox</label>
+                                                    <div className="flex items-center text-white hover:text-blue-500 hover:cursor-pointer">
+                                                        <a href={`/me/enrollments/${enrollment.id}`}>
+                                                            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                            </svg>
+                                                        </a>
                                                     </div>
                                                 </td>
-                                                <th scope="row" className="flex items-center px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">
-                                                    <a href={`/me/enrollments/${enrollment.id}`}>{enrollment.subject_name}</a>
+                                                
+                                                {/* SUBJECT CELL: Added 'whitespace-normal' and 'break-words' to allow wrapping on mobile */}
+                                                <th scope="row" className="px-4 py-2 font-medium text-white whitespace-normal break-words">
+                                                    {enrollment.subject_name}
                                                 </th>
-                                                <td className="px-4 py-2">
-                                                    <span className="bg-primary-100 text-primary-800 text-xs font-medium px-2 py-0.5 rounded bg-primary-900 text-primary-300">{enrollment.teacher_name ?? "Unassigned"}</span>
+
+                                                {/* PROFESSOR: hidden on mobile, table-cell on desktop */}
+                                                <td className="px-10 py-2 hidden md:table-cell">
+                                                    <span className="bg-primary-900 text-primary-300 text-xs font-medium px-2 py-0.5 rounded">
+                                                        {enrollment.teacher_name ?? "Sin Asignar"}
+                                                    </span>
                                                 </td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">
-                                                    <div className="flex items-center">
-                                                        <div
-                                                            className={`inline-block w-4 h-4 mr-2 rounded-full ${
-                                                            enrollment.status === "NT"
-                                                                ? "bg-gray-500"
-                                                                : enrollment.status === "IP"
-                                                                ? "bg-yellow-500"
-                                                                : "bg-green-500"
-                                                            }`}
-                                                        />
-                                                        {statusOptions.find(e => e.value == enrollment.status)?.label}
+
+                                                <td className="px-4 py-2 font-medium text-white">
+                                                    <div className="flex items-center justify-center md:justify-start">
+                                                        <div className={`w-3 h-3 rounded-full ${
+                                                            enrollment.status === "NT" ? "bg-gray-500" : 
+                                                            enrollment.status === "IP" ? "bg-yellow-500" : "bg-green-500"
+                                                        }`}></div>
+                                                        {/* Label hidden on mobile, shown on desktop */}
+                                                        <span className="hidden md:inline ml-2">
+                                                            {statusOptions.find(e => e.value === enrollment.status)?.label}
+                                                        </span>
                                                     </div>
                                                 </td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">{enrollment.subject_credits}</td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">{enrollment.grade != null ? enrollment.grade : "--"}</td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white">
-                                                    <div className="flex items-center">
-                                                        {enrollment.review?.average != null ?
+
+                                                {/* CREDITS: hidden on mobile */}
+                                                <td className="px-4 py-2 hidden md:table-cell text-center text-white">
+                                                    {enrollment.subject_credits}
+                                                </td>
+
+                                                <td className="px-4 py-2 text-center text-white">
+                                                    {enrollment.grade != null ? enrollment.grade : "--"}
+                                                </td>
+
+                                                {/* REVIEWS: hidden on mobile */}
+                                                <td className="px-4 py-2 hidden md:table-cell text-center text-white">
+                                                    <div className="flex items-center justify-center">
+                                                        {enrollment.review?.average != null ? (
                                                             <>
                                                                 {
                                                                     Array.from({ length: filledStars }).map((_, i) => (
@@ -258,25 +216,18 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                                                     ))
                                                                 }
                                                             </>
-                                                            :
-
-                                                            <div className="flex items-center">
-                                                                <span className="ml-1 text-gray-500 text-gray-400 text-center">{enrollment.review?.average?.toFixed(2) ?? "Not reviewed"}</span>
-                                                            </div>
-                                                         }
+                                                        ) : "Sin Reseña"}
                                                     </div>
                                                 </td>
-                                                <td className="px-4 py-2 font-medium text-gray-900 whitespace-nowrap text-white flex justify-center">
-                                                    <div className="flex items-center">
-                                                        {enrollment.completion_date ?? "--"}
-                                                    </div>
+
+                                                {/* DATE: hidden on mobile */}
+                                                <td className="px-4 py-2 hidden md:table-cell text-center text-white">
+                                                    {enrollment.completion_date ?? "--"}
                                                 </td>
                                             </tr>
                                         </React.Fragment>
-                                    )
-                                    
+                                    );
                                 })}
-                            
                             </tbody>
                         </table>
                     </div>
