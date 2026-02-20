@@ -149,7 +149,6 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                                     </td>
                                                 </tr>
                                             )}
-
                                             <tr className="border-b border-gray-600 bg-[#111827] hover:bg-gray-700">
                                                 <td className="w-4 px-4 py-3">
                                                     <div className="flex items-center text-white hover:text-blue-500 hover:cursor-pointer">
