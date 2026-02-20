@@ -49,7 +49,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                             </div>
                             <div className="sm:col-span-3">
                                 <label htmlFor="teacher-name" className="block mb-2 text-sm font-medium text-gray-900 text-white">Profesor</label>
-                                <select id="teacher-name" name="teacher" defaultValue={enrollment.teacher_uuid ?? ""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500">
+                                <select id="teacher-name" name="teacher" defaultValue={enrollment.teacher ?? ""} className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-primary-500 focus:border-primary-500">
                                     <option value="">Sin Asignar</option>
                                     {teachersData.sort((a,b) => a.name.localeCompare(b.name)).map((t) => <option key={t.uuid} value={t.uuid}>{t.name}</option>)}
                                 </select>
@@ -93,7 +93,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                             </th>
                                             {Array.from({ length: 10 }).map((_, i) => (
                                                     <td key={i} className="px-1 py-4">
-                                                        <input defaultChecked={enrollmentData.review?.skills?.filter(s => s.skill.toLowerCase() == rs)[0]['score']==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
+                                                        <input defaultChecked={enrollmentData.review[`${rs.toLowerCase()}`]==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
                                                     </td>
                                                 ))}
                                         </tr>
