@@ -6,9 +6,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'static.wikia.nocookie.net',
+        hostname: 'cdn.pixabay.com',
         port: '', // Can be an empty string
-        pathname: '/kaijuu-8-gou/**',
+        pathname: '/photo/**',
       },
     ],
   },

@@ -6,7 +6,7 @@ import fetcher from "./lib/api/fetcher";
 
 export default async function Home() {
 
-    const teachersData = await fetcher("teachers/")
+    const teachersData = await fetcher("teachers/?top=true")
 
   return (
     <div className={`flex flex-col ${teachersData.error ? "" : "justify-between"} h-full m-auto font-sans`}>
