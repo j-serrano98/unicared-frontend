@@ -1,7 +1,7 @@
 import fetcher from "../lib/api/fetcher";
 import TeachersList from "../components/TeachersList";
 
-export default async function TeachersPage() {
+export default async function ProfesoresPage() {
     const teachersData = await fetcher(`teachers/`);
 
   return(

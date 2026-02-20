@@ -18,7 +18,7 @@ export default function Card({ teacher }) {
             {/* Content section */}
             <div className="w-full">
                 <div>
-                    <Link href={`/teachers/${teacher.uuid}`}>
+                    <Link href={`/profesores/${teacher.slug}`}>
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">{teacher.name}</h2>
                     </Link>
                     <div className="flex space-x-3 mb-6">
