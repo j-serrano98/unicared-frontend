@@ -80,7 +80,7 @@ export default function TopTeachers( { data }) {
                                                 </div>
                                                 <span className="bg-[#162556] border border-brand-subtle text-white text-xs font-medium px-1.5 py-0.5 rounded-sm">{teacher?.rating ? teacher?.rating?.toFixed(2) : 0.00.toFixed(2)}</span>
                                             </div>
-                                            <a href={`/teachers/${teacher.uuid}`}>
+                                            <a href={`/profesores/${teacher.slug}`}>
                                                 <h5 className="text-xl text-heading font-semibold tracking-tight">{teacher.name}</h5>
                                             </a>
                                         </div>

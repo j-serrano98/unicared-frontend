@@ -12,7 +12,7 @@ export default function HomeCards() {
                         <p className='mt-2 mb-4'>
                             Descubre el profesor que mas se adapta a tu estilo de aprendizaje
                         </p>
-                        <a href='/teachers' className='inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700 hover:cursor-pointer'>
+                        <a href='/profesores' className='inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700 hover:cursor-pointer'>
                             Explorar Profesores
                         </a>
                     </div> 
