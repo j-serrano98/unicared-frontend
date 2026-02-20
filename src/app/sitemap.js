@@ -4,7 +4,6 @@ export default async function sitemap() {
     const baseUrl = "https://unicared.tech";
 
     const teachers = await fetcher(`teachers/`)
-        .then((res) => res.json());
 
     const teacherUrls = teachers.map((teacher) => ({
         url: `${baseUrl}/profesores/${teacher.slug}`,
