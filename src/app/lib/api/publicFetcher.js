@@ -1,5 +1,4 @@
 export default async function publicFetcher(endpoint) {
-    console.log("BASE URL:", process.env.NEXT_PUBLIC_API_BASE_URL);
     const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_BASE_URL}/${endpoint}`,
         {
