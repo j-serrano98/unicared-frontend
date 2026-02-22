@@ -3,7 +3,7 @@ export default function robots() {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/profile/',
+      disallow: ['/personal-info', '/me', '/career'],
     },
     sitemap: 'https://unicared.tech/sitemap.xml',
   }
