@@ -1,8 +1,8 @@
-import fetcher from "../lib/api/fetcher";
+import publicFetcher from "../lib/api/publicFetcher";
 import TeachersList from "../components/TeachersList";
 
 export default async function ProfesoresPage() {
-    const teachersData = await fetcher(`teachers/`);
+    const teachersData = await publicFetcher(`teachers/`);
 
   return(
       <section className="p-4 overflow-hidden">

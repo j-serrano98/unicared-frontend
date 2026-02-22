@@ -2,15 +2,12 @@ import DetailsHeader from "@/app/components/DetailsHeader";
 import ReviewList from "@/app/components/ReviewList";
 import Charts from "@/app/components/Charts";
 import GoBackButton from "@/app/components/GoBackButton";
-import fetcher from "@/app/lib/api/fetcher";
 import publicFetcher from "@/app/lib/api/publicFetcher";
 
 export async function generateMetadata({ params }) {
-    const { teacherSlug } = params;
+    const { teacherSlug } = await params;
 
-    const teacherData = await publicFetcher(`teachers/${teacherSlug}/`, {
-        next: { revalidate: 60 },
-    });
+    const teacherData = await publicFetcher(`teachers/${teacherSlug}/`);
 
     if (!teacherData) return { title: "Profesor no encontrado" };
 
@@ -30,11 +27,9 @@ export async function generateMetadata({ params }) {
 
 
 export default async function TeacherPage({ params }) {
-    const { teacherSlug } = params;
+    const { teacherSlug } = await params;
 
-    const teacherData = await fetcher(`teachers/${teacherSlug}/`, {
-        cache: 'no-store',
-    });
+    const teacherData = await publicFetcher(`teachers/${teacherSlug}/`);
     
     return (
         <section className="px-4 md:px-0">
