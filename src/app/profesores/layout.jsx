@@ -3,7 +3,8 @@ import AddTeacherRequest from "../components/info-cards/AddTeacherRequest"
 import TopUsers from "../components/TopUsers"
 
 export const metadata = {
-  title: "Profesores"
+  title: "Profesores",
+  description: 'Listado de profesores de Unicaribe. Reseñas sobre la metodologia de cada uno.'
 }
 
 export default function TeacherPagesLayout( { children }) {
