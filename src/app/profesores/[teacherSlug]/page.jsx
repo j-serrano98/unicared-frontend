@@ -8,8 +8,8 @@ import publicFetcher from "@/app/lib/api/publicFetcher";
 export async function generateMetadata({ params }) {
     const { teacherSlug } = params;
 
-    const teacherData = await fetcher(`teachers/${teacherSlug}/`, {
-        cache: 'no-store',
+    const teacherData = await publicFetcher(`teachers/${teacherSlug}/`, {
+        next: { revalidate: 60 },
     });
 
     if (!teacherData) return { title: "Profesor no encontrado" };
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }) {
 export default async function TeacherPage({ params }) {
     const { teacherSlug } = params;
 
-    const teacherData = await publicFetcher(`teachers/${teacherSlug}/`, {
+    const teacherData = await fetcher(`teachers/${teacherSlug}/`, {
         cache: 'no-store',
     });
     
