@@ -6,7 +6,6 @@ import publicFetcher from "@/app/lib/api/publicFetcher";
 
 export async function generateMetadata({ params }) {
     const { teacherSlug } = await params;
-
     const teacherData = await publicFetcher(`teachers/${teacherSlug}/`);
 
     if (!teacherData) return { title: "Profesor no encontrado" };
@@ -34,7 +33,7 @@ export default async function TeacherPage({ params }) {
     return (
         <section className="px-4 md:px-0">
             <div className="flex-column md:flex gap-5">
-                <aside className="bg-gray-900 md:col-span-4 text-white rounded-2xl justify-between">
+                <aside className="bg-gray-900 md:flex-4 lg:flex-3 text-white rounded-2xl justify-between">
                     <DetailsHeader teacherData={teacherData}/>
                     <Charts className="m-1" teacherData={teacherData}/>
                 </aside>
@@ -43,7 +42,7 @@ export default async function TeacherPage({ params }) {
                     <GoBackButton/>
                 </div>
                 
-                <div className="bg-gray-900 rounded-2xl">
+                <div className="bg-gray-900 rounded-2xl md:flex-5 lg:flex-6">
                     <ReviewList id={teacherData.id} teacherData={teacherData}/>
                 </div>
             </div>
