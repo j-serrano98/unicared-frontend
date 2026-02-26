@@ -198,7 +198,8 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                                 {/* REVIEWS: hidden on mobile */}
                                                 <td className="px-4 py-2 hidden md:table-cell text-center text-white">
                                                     <div className="flex items-center justify-center">
-                                                        {enrollment.review?.average != null ? (
+                                                        {enrollment.status != "NT" && enrollment?.review?.comment != null && enrollment.review?.average == null ? "Sin puntuacion" : (
+                                                            (enrollment.status != "NT" && enrollment?.review?.comment == null && enrollment.review?.average != null) || (enrollment.status != "NT" && enrollment?.review?.comment != null && enrollment.review?.average != null) ? (
                                                             <>
                                                                 {
                                                                     Array.from({ length: filledStars }).map((_, i) => (
@@ -215,7 +216,8 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                                                     ))
                                                                 }
                                                             </>
-                                                        ) : "Sin Reseña"}
+                                                        ) : "Sin Reseña"
+                                                        )}
                                                     </div>
                                                 </td>
 
