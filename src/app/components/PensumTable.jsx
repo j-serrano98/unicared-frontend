@@ -28,7 +28,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
     return (
 
-        <section className="flex flex-col gap-5 antialiased bg-gray-900 md:py-8">
+        <section className="flex flex-col gap-5 antialiased bg-gray-900 px-4 md:py-8">
 
             {/* Social Networks */}
             <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
@@ -59,9 +59,8 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
             {/* Profile Information */}
             <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
-                <div className="">
                     <div className="grid gap-4 sm:gap-8 lg:gap-16">
-                        <div className="grid md:grid-cols-4 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                        <div className="grid md:grid-cols-4 gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
                             <div className="flex justify-between ">
                                 <div className="flex space-x-4">
                                     <Image
@@ -79,26 +78,25 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     </div>
                                 </div>
                             </div>
-                            <div className="ps-2 ">
+                            <div className="">
                                 <div className="font-semibold text-gray-900 text-white">Bio</div>
                                 <div className="text-gray-500 text-gray-400">{(profile?.bio)?.length == 0 ? <span className="italic">Aun no has agregado nada</span> : profile?.bio}</div>
                             </div>
-                            <div className="ps-2">
+                            <div className="">
                                 <div className="font-semibold text-gray-900 text-white">Correo Electronico</div>
                                 <div className="text-gray-500 text-gray-400">{(profile?.email)?.length == 0 ? <span className="italic">Sin especificar</span> : profile?.email}</div>
                             </div>
-                            <div className="ps-2">
+                            <div className="">
                                 <div className="font-semibold text-gray-900 text-white">Direccion</div>
                                 <div className="text-gray-500 text-gray-400">{profile?.address == null ? <span className="italic">Sin especificar</span> : profile?.address}</div>
                             </div>
                         </div>
-                    </div>
-                </div>  
+                    </div> 
             </div>
 
             {/* Statistics */}
             <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
-                <div className="flex gap-5">
+                <div className="flex flex-wrap md:flex-nowrap gap-5">
                     <div className="w-full rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
                         <div className="flex gap-5">
                             <svg className="bg-blue-900 w-12 h-12 p-3 text-blue-400 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
