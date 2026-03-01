@@ -77,7 +77,7 @@ export default function Navbar({ isAuthenticated, profile }) {
                                     
                                     <ul className="p-2 text-start text-sm font-medium text-white">
                                         <li><a href="/me" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Mi Perfil </a></li>
-                                        <li><a href="#" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Ajustes </a></li>
+                                        <li><a href="/me/settings" title="" className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600"> Ajustes </a></li>
                                     </ul>
                                     <ul className="p-2 text-start text-sm font-medium text-white">
                                         <li onClick={handleLogout} className="inline-flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-gray-600 hover:cursor-pointer">Logout</li>
