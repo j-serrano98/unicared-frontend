@@ -28,18 +28,47 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
     return (
 
-        <section className="py-8 antialiased bg-gray-900 md:py-8">
-            <div className="mx-auto max-w-screen-2xl px-4 2xl:px-12">
+        <section className="flex flex-col gap-5 antialiased bg-gray-900 md:py-8">
+
+            {/* Social Networks */}
+            <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
+                <div className="flex justify-end gap-5 pe-5">
+                        <a href={profile.fb_url} target="_blank">
+                            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M13.135 6H15V3h-1.865a4.147 4.147 0 0 0-4.142 4.142V9H7v3h2v9.938h3V12h2.021l.592-3H12V6.591A.6.6 0 0 1 12.592 6h.543Z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href={profile.linkedin_url} target="_blank">
+                            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12.51 8.796v1.697a3.738 3.738 0 0 1 3.288-1.684c3.455 0 4.202 2.16 4.202 4.97V19.5h-3.2v-5.072c0-1.21-.244-2.766-2.128-2.766-1.827 0-2.139 1.317-2.139 2.676V19.5h-3.19V8.796h3.168ZM7.2 6.106a1.61 1.61 0 0 1-.988 1.483 1.595 1.595 0 0 1-1.743-.348A1.607 1.607 0 0 1 5.6 4.5a1.601 1.601 0 0 1 1.6 1.606Z" clip-rule="evenodd"/>
+                                <path d="M7.2 8.809H4V19.5h3.2V8.809Z"/>
+                            </svg>
+                        </a>
+                        <a href={profile.instagram_user} target="_blank">
+                            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                        <a href={profile.github_user} target="_blank">
+                            <svg class="w-6 h-6 text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd" d="M12.006 2a9.847 9.847 0 0 0-6.484 2.44 10.32 10.32 0 0 0-3.393 6.17 10.48 10.48 0 0 0 1.317 6.955 10.045 10.045 0 0 0 5.4 4.418c.504.095.683-.223.683-.494 0-.245-.01-1.052-.014-1.908-2.78.62-3.366-1.21-3.366-1.21a2.711 2.711 0 0 0-1.11-1.5c-.907-.637.07-.621.07-.621.317.044.62.163.885.346.266.183.487.426.647.71.135.253.318.476.538.655a2.079 2.079 0 0 0 2.37.196c.045-.52.27-1.006.635-1.37-2.219-.259-4.554-1.138-4.554-5.07a4.022 4.022 0 0 1 1.031-2.75 3.77 3.77 0 0 1 .096-2.713s.839-.275 2.749 1.05a9.26 9.26 0 0 1 5.004 0c1.906-1.325 2.74-1.05 2.74-1.05.37.858.406 1.828.101 2.713a4.017 4.017 0 0 1 1.029 2.75c0 3.939-2.339 4.805-4.564 5.058a2.471 2.471 0 0 1 .679 1.897c0 1.372-.012 2.477-.012 2.814 0 .272.18.592.687.492a10.05 10.05 0 0 0 5.388-4.421 10.473 10.473 0 0 0 1.313-6.948 10.32 10.32 0 0 0-3.39-6.165A9.847 9.847 0 0 0 12.007 2Z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                </div>
+            </div>
+
+            {/* Profile Information */}
+            <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
                 <div className="">
-                    <div className="mb-4 grid gap-4 sm:gap-8 lg:gap-16">
-                        <div className="grid md:grid-cols-6 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
-                            <div className="flex justify-between col-span-2">
+                    <div className="grid gap-4 sm:gap-8 lg:gap-16">
+                        <div className="grid md:grid-cols-4 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                            <div className="flex justify-between ">
                                 <div className="flex space-x-4">
                                     <Image
                                     className="rounded-lg"
                                     src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
                                     width={100}
-                                    height={90}
+                                    height={80}
                                     alt="Picture of the author"
                                     />
                                     <div>
@@ -49,60 +78,92 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                     {/* <div className="text-gray-500 text-gray-400">{profile.email}</div> */}
                                     </div>
                                 </div>
-                                {/* <button type="button" data-modal-target="accountInformationModal2" data-modal-toggle="accountInformationModal2" className="inline-flex w-full items-center justify-center rounded-lg bg-primary-700 px-5 py-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 bg-primary-600 hover:bg-primary-700 focus:ring-primary-800 sm:w-auto">
-                                    <svg className="-ms-0.5 me-1.5 h-4 w-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                    <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m14.304 4.844 2.852 2.852M7 7H4a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-4.5m2.409-9.91a2.017 2.017 0 0 1 0 2.853l-6.844 6.844L8 14l.713-3.565 6.844-6.844a2.015 2.015 0 0 1 2.852 0Z"></path>
-                                    </svg>
-                                    Edit
-                                </button> */}
+                            </div>
+                            <div className="ps-2 ">
+                                <div className="font-semibold text-gray-900 text-white">Bio</div>
+                                <div className="text-gray-500 text-gray-400">{(profile?.bio).length == 0 ? <span className="italic">Aun no has agregado nada</span> : profile?.bio}</div>
                             </div>
                             <div className="ps-2">
-                                <div className="flex flex-colum gap-5 pt-4 md:pt-0">
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">Carrera Iniciada</div>
-                                        <div className="text-gray-500 text-gray-400">{statsData?.start_date}</div>
-                                    </div>
-                                        
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">Finaliza (Est.)</div>
-                                        <div className="text-gray-500 text-gray-400">{statsData?.end_date}</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="ps-2 col-span-2">
-                                {/* <div className="flex flex-colum gap-5 pt-3"> */}
-                                <div className="flex flex-colum gap-5 pt-4 md:pt-0">
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">Asignaturas</div>
-                                        <div className="text-xl text-gray-500 text-gray-400">{statsData?.total_enrollments ?? 0}</div>
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">Completadas</div>
-                                        <div className="text-xl text-gray-500 text-gray-400">{statsData?.completed_enrollments ?? 0}</div>
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">Restantes</div>
-                                        <div className="text-xl text-gray-500 text-gray-400">{statsData?.total_enrollments ? statsData?.total_enrollments - statsData?.completed_enrollments : 0}</div>
-                                    </div>
-                                    <div>
-                                        <div className="font-semibold text-gray-900 text-white">PGA</div>
-                                        <div className="text-xl text-gray-500 text-gray-400">{statsData?.gpa ? statsData?.gpa?.toFixed(2) : "NA"}</div>
-                                    </div>
-                                </div>
+                                <div className="font-semibold text-gray-900 text-white">Correo Electronico</div>
+                                <div className="text-gray-500 text-gray-400">{(profile?.email)?.length == 0 ? <span className="italic">Sin especificar</span> : profile?.email}</div>
                             </div>
                             <div className="ps-2">
-                                <div className="flex-colum gap-5 pt-4 md:pt-0">
-                                    <div className="font-semibold text-gray-900 text-white">Reseñas Completadas</div>
-                                    <div className="text-xl text-gray-500 text-gray-400">{statsData?.total_reviews ?? 0}</div>
-                                </div>
+                                <div className="font-semibold text-gray-900 text-white">Direccion</div>
+                                <div className="text-gray-500 text-gray-400">{profile?.address == null ? <span className="italic">Sin especificar</span> : profile?.address}</div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>  
             </div>
 
-            <div className="px-4 mx-auto max-w-screen-2xl lg:px-12">
+            {/* Statistics */}
+            <div className="w-full mx-auto max-w-screen-2xl 2xl:px-12">
+                <div className="flex gap-5">
+                    <div className="w-full rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                        <div className="flex gap-5">
+                            <svg class="bg-blue-900 w-12 h-12 p-3 text-blue-400 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.78552 9.5 12.7855 14l9-4.5-9-4.5-8.99998 4.5Zm0 0V17m3-6v6.2222c0 .3483 2 1.7778 5.99998 1.7778 4 0 6-1.3738 6-1.7778V11"/>
+                            </svg>
+                            <div  className="flex flex-col gap-3">
+                                <div>
+                                    <div className="font-semibold text-gray-900 text-white text-lg">Carrera Iniciada</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.start_date}</div>
+                                </div>
+                                <div>
+                                    <div className="font-semibold text-gray-900 text-white text-lg">Finaliza (Est.)</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.end_date}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                        <div className="flex gap-5">
+                            <svg class="bg-blue-900 w-12 h-12 p-3 text-blue-400 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M12.1429 11v9m0-9c-2.50543-.7107-3.19099-1.39543-6.13657-1.34968-.48057.00746-.86348.38718-.86348.84968v7.2884c0 .4824.41455.8682.91584.8617 2.77491-.0362 3.45995.6561 6.08421 1.3499m0-9c2.5053-.7107 3.1067-1.39542 6.0523-1.34968.4806.00746.9477.38718.9477.84968v7.2884c0 .4824-.4988.8682-1 .8617-2.775-.0362-3.3758.6561-6 1.3499m2-14c0 1.10457-.8955 2-2 2-1.1046 0-2-.89543-2-2s.8954-2 2-2c1.1045 0 2 .89543 2 2Z"/>
+                            </svg>
+                            <div  className="flex flex-col gap-3">
+                                <div>
+                                    <div className="font-semibold text-gray-900 text-white text-lg">Asignaturas</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.total_enrollments ?? 0} Pensum</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.completed_enrollments ?? 0} Completadas</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.total_enrollments ? statsData?.total_enrollments - statsData?.completed_enrollments : 0} Restantes</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                        <div className="flex gap-5">
+                            <svg class="bg-blue-900 w-12 h-12 p-3 text-blue-400 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5713 5h7v9h-7m-6.00001-4-3 4.5m3-4.5v5m0-5h3.00001m0 0h5m-5 0v5m-3.00001 0h3.00001m-3.00001 0v5m3.00001-5v5m6-6 2.5 6m-3-6-2.5 6m-3-14.5c0 .82843-.67158 1.5-1.50001 1.5-.82843 0-1.5-.67157-1.5-1.5s.67157-1.5 1.5-1.5 1.50001.67157 1.50001 1.5Z"/>
+                            </svg>
+                            <div  className="flex flex-col gap-3">
+                                <div className="font-semibold text-gray-900 text-white text-lg">3 Profesores</div>
+                                <div className="font-semibold text-gray-900 text-white text-lg">{statsData?.total_reviews ?? 0} Reseñas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
+                        <div className="flex gap-5">
+                            <svg class="bg-blue-900 w-12 h-12 p-3 text-blue-400 rounded-lg" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M4.07141 14v6h5.99999v-6H4.07141Zm4.5-4h6.99999l-3.5-6-3.49999 6Zm7.99999 10c1.933 0 3.5-1.567 3.5-3.5s-1.567-3.5-3.5-3.5-3.5 1.567-3.5 3.5 1.567 3.5 3.5 3.5Z"/>
+                            </svg>
+                            <div  className="flex flex-col gap-3">
+                                <div>
+                                    <div className="font-semibold text-gray-900 text-white text-lg">PGA</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.gpa ? statsData?.gpa?.toFixed(2) : "NA"}</div>
+                                </div>
+                                <div>
+                                    <div className="font-semibold text-gray-900 text-white text-lg">Progreso</div>
+                                    <div className="text-gray-500 text-gray-400">{statsData?.completion_rate?.toFixed(2) ?? 0.00}%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            
+
+            <div className="w-full mx-auto max-w-screen-2xl lg:px-12">
                 <div className="relative overflow-hidden shadow-md bg-gray-800 sm:rounded-lg">
                     <div className="h-screen overflow-y-auto mb-5 border border-gray-700">
                         <table className="w-full text-sm text-left text-gray-500 text-gray-400 table-fixed">
