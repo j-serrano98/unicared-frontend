@@ -10,6 +10,12 @@ const nextConfig = {
         port: '', // Can be an empty string
         pathname: '/photo/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '', // Can be an empty string
+        pathname: '/**',
+      },
     ],
   },
 };

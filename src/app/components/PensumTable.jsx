@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react"
-import Image from 'next/image'
+import { CldImage } from "next-cloudinary";
 
 const statusOptions = [
         { value: "NT", label: "Sin Iniciar" },
@@ -63,12 +63,12 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                         <div className="grid md:grid-cols-4 gap-4 rounded-lg border border-gray-200 bg-gray-50 p-4 border-gray-700 bg-gray-800 md:p-6">
                             <div className="flex justify-between ">
                                 <div className="flex space-x-4">
-                                    <Image
+                                    <CldImage
                                     className="rounded-lg"
-                                    src="https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png"
+                                    src={profile.profile_pic}
                                     width={100}
                                     height={80}
-                                    alt="Picture of the author"
+                                    alt={`Foto de perfil de ${profile.first_name} ${profile.last_name}`}
                                     />
                                     <div>
                                     <span className={`mb-2 inline-block rounded bg-gray-200 px-2.5 py-0.5 text-xs font-medium text-beige-800 text-beige-300`}>{statsData?.current_rank?.level_name ?? "Pino Nuevo"}</span>
