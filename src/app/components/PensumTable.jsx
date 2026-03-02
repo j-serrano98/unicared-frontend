@@ -154,7 +154,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 </div>
                                 <div>
                                     <div className="font-semibold text-gray-900 text-white text-lg">Progreso</div>
-                                    <div className="text-gray-500 text-gray-400">{statsData?.completion_rate?.toFixed(2) ?? 0.00}%</div>
+                                    <div className="text-gray-500 text-gray-400">{(statsData?.completion_rate * 100)?.toFixed(2) ?? 0.00}%</div>
                                 </div>
                             </div>
                         </div>
