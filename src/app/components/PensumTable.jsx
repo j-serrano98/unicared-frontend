@@ -12,6 +12,8 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
 
     const [profile, setProfile] = useState([]);
     const sortedEnrollments = [...enrollmentData].sort((a,b) => a.subject_period - b.subject_period);
+    const profileImage = profile.profile_pic ?? "https://res.cloudinary.com/dtjynfbic/image/upload/v1772458780/avatar-1577909_960_720_alfm83.jpg"
+    console.log("profileImage is null?: ", profileImage)
 
     useEffect(() => {
 
@@ -65,7 +67,7 @@ export default function PensumTable( { profileData, enrollmentData, statsData })
                                 <div className="flex space-x-4">
                                     <CldImage
                                     className="rounded-lg"
-                                    src={profile.profile_pic}
+                                    src={profile.profile_pic ?? "https://res.cloudinary.com/dtjynfbic/image/upload/v1772458780/avatar-1577909_960_720_alfm83.jpg"}
                                     width={100}
                                     height={80}
                                     alt={`Foto de perfil de ${profile.first_name} ${profile.last_name}`}

@@ -103,7 +103,7 @@ export default function ProfileForm({ profile }) {
                         <input type="hidden" id="profile_pic" name="profile_pic" defaultValue={profilePic || ""} />
                         <CldImage
                         className="rounded-full mx-auto"
-                        src={profilePic}
+                        src={profilePic ?? "https://res.cloudinary.com/dtjynfbic/image/upload/v1772458780/avatar-1577909_960_720_alfm83.jpg"}
                         width={200}
                         height={200}
                         alt={`Foto de perfil de ${profile.first_name} ${profile.last_name}`}
