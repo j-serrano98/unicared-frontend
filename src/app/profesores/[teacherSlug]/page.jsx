@@ -6,6 +6,7 @@ import publicFetcher from "@/app/lib/api/publicFetcher";
 
 export async function generateMetadata({ params }) {
     const { teacherSlug } = await params;
+
     const teacherData = await publicFetcher(`teachers/${teacherSlug}/`);
 
     if (!teacherData) return { title: "Profesor no encontrado" };
