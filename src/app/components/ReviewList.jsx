@@ -39,7 +39,7 @@ export default function ReviewList({ teacherData }) {
             <section>
                 <div className="mx-auto max-w-screen-xl px-4 2xl:px-0 h-[76vh] overflow-hidden overflow-y-auto scrollbar">
                     <div className="flex items-center gap-2">
-                    <h2 className="text-2xl font-semibold text-gray-900 text-white">Reviews</h2>
+                    <h2 className="text-2xl font-semibold text-gray-900 text-white">Reseñas</h2>
 
                     <div className="mt-2 flex items-center gap-2 sm:mt-0">
                         <div className="flex items-center gap-0.5">
@@ -59,7 +59,7 @@ export default function ReviewList({ teacherData }) {
                             }
                         </div>
                         <p className="text-sm font-medium leading-none text-gray-500 text-gray-400">({(teacherData.reviews.reduce((acc, curr) => acc + curr.average, 0) / teacherData.reviews.length || 0).toFixed(2)})</p>
-                        <a href="#" className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline text-white"> {teacherData.reviews.length} Reviews </a>
+                        <a href="#" className="text-sm font-medium leading-none text-gray-900 underline hover:no-underline text-white"> {teacherData.reviews.length} Reseñas </a>
                     </div>
                     </div>
 

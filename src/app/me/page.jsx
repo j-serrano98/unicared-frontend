@@ -30,6 +30,8 @@ export default async function MePage() {
   const profileData = profileRes.status === 'fulfilled' ? profileRes.value : null;
   const enrollmentData = enrollmentRes.status === 'fulfilled' ? enrollmentRes.value : null;
   const enrollmentStats = statsRes.status === 'fulfilled' ? statsRes.value : null;
+
+  console.log("profile: ", profileData)
   
   return (
     <div className="h-full">

@@ -86,6 +86,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    {console.log(enrollmentData)}
                                     {reviewSkills.map(rs => (
                                         <tr key={rs} className="bg-neutral-primary border-b border-default">
                                             <th scope="row" className="py-4 font-medium text-heading whitespace-nowrap text-white">
@@ -93,7 +94,7 @@ export default function EnrollmentFormUpdate({ enrollmentData, teachersData }) {
                                             </th>
                                             {Array.from({ length: 10 }).map((_, i) => (
                                                     <td key={i} className="px-1 py-4">
-                                                        <input defaultChecked={enrollmentData.review[`${rs.toLowerCase()}`]==i+1} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
+                                                        <input defaultChecked={enrollmentData?.review?.[`${rs.toLowerCase()}`]==i+1 ?? false} key={`${rs}-${i+1}`} id={`${rs}-${i+1}`} type="radio" value={i+1} name={rs} className="w-4 h-4 text-neutral-primary border-default-medium bg-neutral-secondary-medium rounded-full checked:border-brand focus:ring-2 focus:outline-none focus:ring-brand-subtle border border-default"/>
                                                     </td>
                                                 ))}
                                         </tr>
