@@ -18,7 +18,7 @@ export default function TeacherPagesLayout( { children }) {
             </div>
     
             {/* Right Side Panel */}
-            <div className="hidden md:block col-span-3 flex flex-col items-center px-4 gap-6">
+            <div className="hidden lg:block col-span-3 flex flex-col items-center px-4 gap-6">
               <div className="pb-6">
                 <CollaborationCard/>
               </div>
